@@ -1,0 +1,76 @@
+<!--This is the contact page component-->
+<section class="hero is-light is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Contact Us!
+            </h1>
+            <h3 class="subtitle">
+                This is the page to contact us.
+            </h3>
+        </div>
+    </div>
+    <section class="section is-medium">
+        <div class="container">
+            <!--Contact Form-->
+          <form (ngSubmit)="processForm()" #contactForm="ngForm">
+              <!--Name-->
+              <div class="field">
+                <label class="label">Name</label>
+                  <input 
+                      type="text" 
+                      name="name" 
+                      class="input" 
+                      placeholder="Your Name"
+                      [(ngModel)]="name"
+                      #nameInput="ngModel"
+                      required>
+                  <!--Error if no name is provided-->
+                  <div class="help is-error is-danger" *ngIf="nameInput.invalid && nameInput.touched">
+                      Your name is required.
+                  </div>
+              </div>
+              <!--Email-->
+              <div class="field">
+                <label class="label">Email</label>
+                  <input 
+                      type="email" 
+                      name="email" 
+                      class="input" 
+                      placeholder="Your Email" 
+                      [(ngModel)]="email"
+                      #emailInput="ngModel"
+                      required
+                      email>
+                  <!--Error if no email is provided-->
+                  <div class="help is-error is-danger" *ngIf="emailInput.invalid && emailInput.touched">
+                      Your email is required.
+                  </div>
+              </div>
+              <!--Message-->
+              <div class="field">
+                <label class="label">Message</label>
+                  <textarea 
+                      class="textarea" 
+                      name="message" 
+                      placeholder="Your Message Here" 
+                      [(ngModel)]="message"
+                      #messageInput="ngModel"
+                      required
+                  ></textarea>
+                  <!--Error if no name is provided-->
+                  <div class="help is-error is-danger" *ngIf="messageInput.invalid && messageInput.touched">
+                      A message is required.
+                  </div>
+              </div>
+              <!--Submit Button-->
+              <button 
+                  type="submit" 
+                  class="button is-primary is-large"
+                  [disabled]="contactForm.invalid">
+                  Sumbit
+              </button>
+          </form>
+        </div>
+      </section>
+</section>

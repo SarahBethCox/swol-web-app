@@ -1,0 +1,192 @@
+<!--place order page component-->
+<!--Page Title/Header-->
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Place Order!
+        </h1>
+        <h3 class="subtitle">
+          This is the page to place an order.
+        </h3>
+      </div>
+    </div>
+
+    <!--Description of tiers-->
+    <section class="section">
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+              <div class="notification has-text-dark">
+                <h1 class="title has-text-dark is-size-4">Tier 1</h1>
+                <h3 class="subtitle has-text-dark is-size-6">Description of package.</h3>
+                <p class="is-size-6">
+                  Do play they miss give so up. Words to up style of since world.
+                  We leaf to snug on no need. Way own uncommonly travelling now acceptance bed compliment solicitude.
+                  Dissimilar admiration so terminated no in contrasted it. Advantages entreaties mr he apartments do.
+                  Limits far yet turned highly repair parish talked six. Draw fond rank form nor the day eat. 
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="notification has-text-dark">
+                <h1 class="title has-text-dark is-size-4">Tier 2</h1>
+                <h3 class="subtitle has-text-dark is-size-6">Description of package.</h3>
+                <p class="is-size-6">
+                  Do play they miss give so up. Words to up style of since world.
+                  We leaf to snug on no need. Way own uncommonly travelling now acceptance bed compliment solicitude.
+                  Dissimilar admiration so terminated no in contrasted it. Advantages entreaties mr he apartments do.
+                  Limits far yet turned highly repair parish talked six. Draw fond rank form nor the day eat. 
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="notification has-text-dark">
+                <h1 class="title has-text-dark is-size-4">Tier 3</h1>
+                <h3 class="subtitle has-text-dark is-size-6">Description of package.</h3>
+                <p class="is-size-6">
+                  Do play they miss give so up. Words to up style of since world.
+                  We leaf to snug on no need. Way own uncommonly travelling now acceptance bed compliment solicitude.
+                  Dissimilar admiration so terminated no in contrasted it. Advantages entreaties mr he apartments do.
+                  Limits far yet turned highly repair parish talked six. Draw fond rank form nor the day eat. 
+                </p>
+              </div>
+            </div>
+            <div class="column">
+                <div class="notification has-text-dark">
+                  <h1 class="title has-text-dark is-size-4">Tier 4</h1>
+                  <h3 class="subtitle has-text-dark is-size-6">Description of package.</h3>
+                  <p class="is-size-6">
+                    Do play they miss give so up. Words to up style of since world.
+                    We leaf to snug on no need. Way own uncommonly travelling now acceptance bed compliment solicitude.
+                    Dissimilar admiration so terminated no in contrasted it. Advantages entreaties mr he apartments do.
+                    Limits far yet turned highly repair parish talked six. Draw fond rank form nor the day eat. 
+                  </p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <!--Form Title/Header-->
+      <section class="section is-medium">
+        <div class="container">
+          <h1 class="title is-1 has-text-centered">
+            Like what you see?
+          </h1>
+          <h3 class="subtitle has-text-centered">
+            Place an order using the form below.
+          </h3>
+        </div>
+      </section>
+
+      <!--Form-->
+      <section class="section is-medium">
+        <div class="container">
+        <form (ngSubmit)="processForm()" #orderForm="ngForm">
+          <!--First and Last Name Fields-->
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Name</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control">
+                  <input 
+                    class="input" 
+                    type="text" 
+                    placeholder="First Name"
+                    required>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <input 
+                    class="input" 
+                    type="text" 
+                    placeholder="Last Name"
+                    required>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!--Shipping From Fields-->
+          <div class="field is-horizontal">
+              <div class="field-label is-normal">
+                <label class="label">Shipping From</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <div class="select is-fullwidth">
+                      <select required>
+                        <option>City 1</option>
+                        <option>City 2</option>
+                        <option>City 3</option>
+                        <option>City 4</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--Shipping To Fields-->
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                  <label class="label">Shipping To</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <div class="control">
+                      <div class="select is-fullwidth">
+                        <select required>
+                          <option>City 1</option>
+                          <option>City 2</option>
+                          <option>City 3</option>
+                          <option>City 4</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Tier Options-->
+              <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                  <label class="label">Tier:</label>
+                </div>
+                <div class="field-body">
+                  <div class="field">
+                    <div class="control">
+                      <label class="radio">
+                        <input type="radio" name="tier" checked required>
+                        Tier One
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="tier">
+                        Tier Two
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="tier">
+                        Tier Three
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="tier">
+                        Tier Four
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!--Submit Button-->
+              <div class="buttons is-right">
+                <span class="button is-medium" routerLink="/order-confirm">Submit</span>
+              </div>
+      </form>        
+    </div>
+  </section>
+</section>
