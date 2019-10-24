@@ -1,6 +1,6 @@
 <!--order confirm component-->
 <!--displays right after and order is placed-->
-<section class="hero is-info is-bold is-fullheight">
+<section class="hero is-info is-bold">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
@@ -11,4 +11,112 @@
         </h3>
       </div>
     </div>
+
+    <section class="section is-medium">
+      <div class="container">
+        <div class="tile is-ancestor">
+          <div class="tile is-12 is-vertical">
+            <div class="tile">
+                <!--Order Info Tile-->
+                <div class="tile is-vertical is-parent">
+                    <div class="tile is-child box">
+                      <p class="title has-text-dark">
+                        Order Info:
+                      </p>
+                      <div class="content">
+                          <!--First and Last Name-->
+                          <fieldset disabled>
+                          <div class="field is-horizontal">
+                              <div class="field-label is-normal">
+                                <label class="label">Name</label>
+                              </div>
+                              <div class="field-body">
+                                <div class="field">
+                                  <p class="control">
+                                    <input 
+                                      class="input" 
+                                      type="text" 
+                                      placeholder="First Name"
+                                      required>
+                                  </p>
+                                </div>
+                                <div class="field">
+                                  <p class="control">
+                                    <input 
+                                      class="input" 
+                                      type="text" 
+                                      placeholder="Last Name"
+                                      required>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <!--Shipping from-->
+                            <div class="field is-horizontal">
+                              <div class="field-label is-normal">
+                                <label class="label">Ship From:</label>
+                              </div>
+                              <div class="field-body">
+                                <div class="field">
+                                  <p class="control">
+                                    <input
+                                      class="input"
+                                      type="text"
+                                      placeholder="Shipping From">
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            <!--Shipping To-->
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                  <label class="label">Ship To:</label>
+                                </div>
+                                <div class="field-body">
+                                  <div class="field">
+                                    <p class="control">
+                                      <input
+                                        class="input"
+                                        type="text"
+                                        placeholder="Shipping To">
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                              <!--Tier Package-->
+                              <div class="field is-horizontal">
+                                  <div class="field-label is-normal">
+                                    <label class="label">Tier:</label>
+                                  </div>
+                                  <div class="field-body">
+                                    <div class="field">
+                                      <p class="control">
+                                        <input
+                                          class="input"
+                                          type="text"
+                                          placeholder="Tier Package">
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </fieldset>
+                      </div>
+                    </div>
+                </div>
+                <!--Order Summary Tile-->
+                <div class="tile is-parent">
+                    <div class="tile is-child box">
+                        <p class="title has-text-dark">
+                            Order Summary:
+                        </p>
+                        <div class="content">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </section>
 </section>

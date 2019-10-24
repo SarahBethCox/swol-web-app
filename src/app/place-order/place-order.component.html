@@ -79,114 +79,65 @@
           </h3>
         </div>
       </section>
-
+      
       <!--Form-->
       <section class="section is-medium">
-        <div class="container">
-        <form (ngSubmit)="processForm()" #orderForm="ngForm">
-          <!--First and Last Name Fields-->
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">Name</label>
-            </div>
-            <div class="field-body">
+          <div class="container">
+            <form (ngSubmit)="processForm()" #contactForm="ngForm">
+               
+              <!--Name fields-->
               <div class="field">
-                <p class="control">
+                <label class="label">Name</label>
                   <input 
-                    class="input" 
-                    type="text" 
-                    placeholder="First Name"
-                    required>
-                </p>
+                      type="text" 
+                      name="name" 
+                      class="input" 
+                      placeholder="Your Name"
+                      [(ngModel)]="name"
+                      #nameInput="ngModel"
+                      required>
+                  <!--Error if no name is provided-->
+                  <div class="help is-error is-danger" *ngIf="nameInput.invalid && nameInput.touched">
+                      Your name is required.
+                  </div>
               </div>
+
+              <!--Ship From field-->
               <div class="field">
-                <p class="control">
-                  <input 
-                    class="input" 
-                    type="text" 
-                    placeholder="Last Name"
-                    required>
-                </p>
+                <label class="label">Ship From:</label>
+                <div class="select is-fullwidth">
+                  <select (change)="selectChangeHandlerFrom($event)">
+                    <option value="?"></option>
+                    <option value="City1">City 1</option>
+                    <option value="City2">City 2</option>
+                    <option value="City3">City 3</option>
+                    <option value="City4">City 4</option>
+                  </select>
+                </div>
               </div>
-            </div>
+
+              <!--Ship To field-->
+              <div class="field">
+                <label class="label">Ship To:</label>
+                <div class="select is-fullwidth">
+                  <select (change)="selectChangeHandlerTo($event)">
+                    <option value="?"></option>
+                    <option value="City1">City 1</option>
+                    <option value="City2">City 2</option>
+                    <option value="City3">City 3</option>
+                    <option value="City4">City 4</option>
+                  </select>
+                </div>
+              </div>
+
+            <!--Submit Button-->
+            <button
+               type="submit" 
+                class="button is-light is-large"
+                [disabled]="contactForm.invalid">
+                Sumbit
+            </button>
+            </form>
           </div>
-
-          <!--Shipping From Fields-->
-          <div class="field is-horizontal">
-              <div class="field-label is-normal">
-                <label class="label">Shipping From</label>
-              </div>
-              <div class="field-body">
-                <div class="field">
-                  <div class="control">
-                    <div class="select is-fullwidth">
-                      <select required>
-                        <option>City 1</option>
-                        <option>City 2</option>
-                        <option>City 3</option>
-                        <option>City 4</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!--Shipping To Fields-->
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                  <label class="label">Shipping To</label>
-                </div>
-                <div class="field-body">
-                  <div class="field">
-                    <div class="control">
-                      <div class="select is-fullwidth">
-                        <select required>
-                          <option>City 1</option>
-                          <option>City 2</option>
-                          <option>City 3</option>
-                          <option>City 4</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!--Tier Options-->
-              <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                  <label class="label">Tier:</label>
-                </div>
-                <div class="field-body">
-                  <div class="field">
-                    <div class="control">
-                      <label class="radio">
-                        <input type="radio" name="tier" checked required>
-                        Tier One
-                      </label>
-                      <label class="radio">
-                        <input type="radio" name="tier">
-                        Tier Two
-                      </label>
-                      <label class="radio">
-                        <input type="radio" name="tier">
-                        Tier Three
-                      </label>
-                      <label class="radio">
-                        <input type="radio" name="tier">
-                        Tier Four
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <!--Submit Button-->
-              <div class="buttons is-right">
-                <span class="button is-medium" routerLink="/order-confirm">Submit</span>
-              </div>
-      </form>        
-    </div>
-  </section>
+        </section>
 </section>

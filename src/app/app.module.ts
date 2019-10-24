@@ -11,6 +11,8 @@ import { ViewOrderComponent } from './view-order/view-order.component';
 import { CoreModule } from './core/core.module';
 import { fromEvent } from 'rxjs';
 import { OrderConfirmComponent } from './place-order/order-confirm/order-confirm/order-confirm.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import { SignInComponent } from './admin-view/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { OrderConfirmComponent } from './place-order/order-confirm/order-confirm
     ContactComponent,
     PlaceOrderComponent,
     ViewOrderComponent,
-    OrderConfirmComponent
+    OrderConfirmComponent,
+    AdminViewComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

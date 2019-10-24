@@ -5,6 +5,8 @@ import { ContactComponent } from './contact/contact.component';
 import { PlaceOrderComponent } from './place-order/place-order.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { OrderConfirmComponent } from './place-order/order-confirm/order-confirm/order-confirm.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import { SignInComponent } from './admin-view/sign-in/sign-in.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,14 @@ const routes: Routes = [
   {
     path: 'order-confirm',
     component: OrderConfirmComponent
+  },
+  {
+    path: 'sign-in',
+    component: SignInComponent
+  },
+  {
+    path: 'admin-view',
+    component: AdminViewComponent
   }
 ];
 
