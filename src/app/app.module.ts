@@ -10,7 +10,11 @@ import { PlaceOrderComponent } from './place-order/place-order.component';
 import { ViewOrderComponent } from './view-order/view-order.component';
 import { CoreModule } from './core/core.module';
 import { fromEvent } from 'rxjs';
-import { OrderConfirmComponent } from './place-order/order-confirm/order-confirm/order-confirm.component';
+import { OrderConfirmComponent } from './place-order/order-confirm/order-confirm.component';
+import {AngularFireModule} from "@angular/fire";
+import {AngularFirestoreModule} from "@angular/fire/firestore";
+import { environment } from 'src/environments/environment';
+import { OrderService } from './shared/order.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +29,12 @@ import { OrderConfirmComponent } from './place-order/order-confirm/order-confirm
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

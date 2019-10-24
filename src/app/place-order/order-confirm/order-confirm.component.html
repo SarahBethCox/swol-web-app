@@ -1,0 +1,59 @@
+<!--order confirm component-->
+<!--displays right after and order is placed-->
+<section class="hero is-info is-bold is-fullheight">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Confirm Order!
+        </h1>
+        <h3 class="subtitle">
+          Hi {{firstName}} This is the page to confirm your order.
+        </h3>
+        <div class="columns is-mobile">
+            <div class="column">
+                <table class="table is-striped is-narrow is-hoverable is-three-fifths">
+                    <!-- <thead></thead> -->
+                    <tbody>
+                      <tr>
+                        <th>Shipping From</th>
+                        <td>{{from}}</td>
+                      </tr>
+                      <tr>
+                          <th>Shipping To</th>
+                          <td>{{to}}</td>
+                        </tr>
+                        <tr>
+                            <th>Tier</th>
+                            <td>{{tier}}</td>
+                          </tr>
+                          
+                    </tbody>
+                  </table>
+            </div>
+            <div class="column">
+                <table class="table is-striped is-narrow is-hoverable is-three-fifths">
+                    <!-- <thead></thead> -->
+                    <tbody>
+                      <tr>
+                        <th>Miles Traveled</th>
+                        <td id="distance">{{ditance}}</td>
+                      </tr>
+                      <tr>
+                          <th>Tax</th>
+                          <td></td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <td></td>
+                          </tr>
+                          
+                    </tbody>
+                  </table>
+
+            </div>
+        </div>
+        <button type="submit"class="button is-medium" (click)="submitOrder()" >Order</button>
+
+      </div>
+    </div>
+</section>

@@ -3,10 +3,10 @@
 <section class="hero is-primary is-bold">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">
+        <h1 class="title has-text-centered">
           Place Order!
         </h1>
-        <h3 class="subtitle">
+        <h3 class="subtitle has-text-centered">
           This is the page to place an order.
         </h3>
       </div>
@@ -18,8 +18,15 @@
           <div class="columns">
             <div class="column">
               <div class="notification has-text-dark">
-                <h1 class="title has-text-dark is-size-4">Tier 1</h1>
-                <h3 class="subtitle has-text-dark is-size-6">Description of package.</h3>
+                  <div class="centerImg">
+                      <figure >
+                          <p class="image is-64x64">
+                            <img src="../../assets/img/tierOne.png">
+                          </p>
+                        </figure>
+                      </div>
+                <h1 class="title has-text-dark is-size-4 has-text-centered">Tier 1</h1>
+                <h3 class="subtitle has-text-dark is-size-6 has-text-centered">Description of package.</h3>
                 <p class="is-size-6">
                   Do play they miss give so up. Words to up style of since world.
                   We leaf to snug on no need. Way own uncommonly travelling now acceptance bed compliment solicitude.
@@ -30,8 +37,15 @@
             </div>
             <div class="column">
               <div class="notification has-text-dark">
-                <h1 class="title has-text-dark is-size-4">Tier 2</h1>
-                <h3 class="subtitle has-text-dark is-size-6">Description of package.</h3>
+                  <div class="centerImg">
+                      <figure >
+                          <p class="image is-64x64">
+                            <img src="../../assets/img/tierTwo.png">
+                          </p>
+                        </figure>
+                      </div>
+                <h1 class="title has-text-dark is-size-4 has-text-centered">Tier 2</h1>
+                <h3 class="subtitle has-text-dark is-size-6 has-text-centered">Description of package.</h3>
                 <p class="is-size-6">
                   Do play they miss give so up. Words to up style of since world.
                   We leaf to snug on no need. Way own uncommonly travelling now acceptance bed compliment solicitude.
@@ -42,8 +56,15 @@
             </div>
             <div class="column">
               <div class="notification has-text-dark">
-                <h1 class="title has-text-dark is-size-4">Tier 3</h1>
-                <h3 class="subtitle has-text-dark is-size-6">Description of package.</h3>
+                  <div class="centerImg">
+                      <figure >
+                          <p class="image is-64x64">
+                            <img src="../../assets/img/tierThree.png">
+                          </p>
+                        </figure>
+                      </div>
+                <h1 class="title has-text-dark is-size-4 has-text-centered">Tier 3</h1>
+                <h3 class="subtitle has-text-dark is-size-6 has-text-centered">Description of package.</h3>
                 <p class="is-size-6">
                   Do play they miss give so up. Words to up style of since world.
                   We leaf to snug on no need. Way own uncommonly travelling now acceptance bed compliment solicitude.
@@ -54,8 +75,15 @@
             </div>
             <div class="column">
                 <div class="notification has-text-dark">
-                  <h1 class="title has-text-dark is-size-4">Tier 4</h1>
-                  <h3 class="subtitle has-text-dark is-size-6">Description of package.</h3>
+                    <div class="centerImg">
+                        <figure >
+                            <p class="image is-64x64">
+                              <img src="../../assets/img/tierFour.png">
+                            </p>
+                          </figure>
+                        </div>
+                  <h1 class="title has-text-dark is-size-4 has-text-centered">Tier 4</h1>
+                  <h3 class="subtitle has-text-dark is-size-6 has-text-centered">Description of package.</h3>
                   <p class="is-size-6">
                     Do play they miss give so up. Words to up style of since world.
                     We leaf to snug on no need. Way own uncommonly travelling now acceptance bed compliment solicitude.
@@ -82,30 +110,29 @@
 
       <!--Form-->
       <section class="section is-medium">
-        <div class="container">
-        <form (ngSubmit)="processForm()" #orderForm="ngForm">
+        <div class=" container centerForm">
+            <div class=" column  is-two-fifths">
+            
+        <form class="" #form="ngForm" (submit)="onSubmit(form)">
           <!--First and Last Name Fields-->
           <div class="field is-horizontal">
-            <div class="field-label is-normal">
+            <!-- <div class="field-label is-normal">
               <label class="label">Name</label>
-            </div>
+            </div> -->
+            
             <div class="field-body">
               <div class="field">
                 <p class="control">
-                  <input 
-                    class="input" 
-                    type="text" 
-                    placeholder="First Name"
-                    required>
+                    Name:
+                  <input autocomplete="off"  class="input" type="text" placeholder="First Name" name="firstName" #firstName="ngModel"
+                    [(ngModel)]="service.formData.firstName">
                 </p>
               </div>
               <div class="field">
                 <p class="control">
-                  <input 
-                    class="input" 
-                    type="text" 
-                    placeholder="Last Name"
-                    required>
+                  Last Name:
+                  <input autocomplete="off"  class="input" type="text" placeholder="Last Name" name="lastName" #lastName="ngModel"
+                    [(ngModel)]="service.formData.lastName">
                 </p>
               </div>
             </div>
@@ -113,18 +140,20 @@
 
           <!--Shipping From Fields-->
           <div class="field is-horizontal">
-              <div class="field-label is-normal">
+              <!-- <div class="field-label is-normal">
                 <label class="label">Shipping From</label>
-              </div>
+              </div> -->
               <div class="field-body">
                 <div class="field">
-                  <div class="control">
+                  <div class="control">Shipping From:
                     <div class="select is-fullwidth">
-                      <select required>
-                        <option>City 1</option>
-                        <option>City 2</option>
-                        <option>City 3</option>
-                        <option>City 4</option>
+                  
+                      <select (change)="shippingFromSelection($event)"required>
+                          <option selected disabled> From</option>
+                          <option value="AL">Los Angeles</option>
+                          <option value="Alaska">Alaska</option>
+                          <option value="Arizona">Arizona</option>
+                          <option value="Arkansas">Arkansas</option>
                       </select>
                     </div>
                   </div>
@@ -134,18 +163,23 @@
 
             <!--Shipping To Fields-->
             <div class="field is-horizontal">
-                <div class="field-label is-normal">
+                <!-- <div class="field-label is-normal">
                   <label class="label">Shipping To</label>
-                </div>
+                </div> -->
                 <div class="field-body">
                   <div class="field">
-                    <div class="control">
+                    <div class="control">Shipping  To:
                       <div class="select is-fullwidth">
-                        <select required>
-                          <option>City 1</option>
-                          <option>City 2</option>
-                          <option>City 3</option>
-                          <option>City 4</option>
+                    
+                        <select  (change)="shippingToSelection($event)" required>
+                            <option selected disabled> To</option>
+                            <option value="New York">New York</option>
+                            <option value="Connecticut">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="Florida">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
                         </select>
                       </div>
                     </div>
@@ -155,38 +189,47 @@
 
               <!--Tier Options-->
               <div class="field is-horizontal">
-                <div class="field-label is-normal">
+                <!-- <div class="field-label is-normal">
                   <label class="label">Tier:</label>
-                </div>
+                </div> -->
                 <div class="field-body">
                   <div class="field">
-                    <div class="control">
+                    <div class="control">Tier:<br>
                       <label class="radio">
-                        <input type="radio" name="tier" checked required>
+                        <input type="radio" name="tier" #tier="ngModel"
+                        [(ngModel)]="service.formData.tier"  value=1>
                         Tier One
                       </label>
                       <label class="radio">
-                        <input type="radio" name="tier">
+                        <input type="radio" #tier="ngModel"
+                        [(ngModel)]="service.formData.tier" value=2 name="tier">
                         Tier Two
                       </label>
                       <label class="radio">
-                        <input type="radio" name="tier">
+                        <input type="radio" #tier="ngModel"
+                        [(ngModel)]="service.formData.tier" value=3 name="tier">
                         Tier Three
                       </label>
                       <label class="radio">
-                        <input type="radio" name="tier">
+                        <input type="radio" #tier="ngModel"
+                        [(ngModel)]="service.formData.tier" value=4 name="tier">
                         Tier Four
                       </label>
                     </div>
                   </div>
                 </div>
               </div>
-              
+          
               <!--Submit Button-->
-              <div class="buttons is-right">
-                <span class="button is-medium" routerLink="/order-confirm">Submit</span>
+              <div class="buttons is-centered"> 
+                <!-- routerLink="/order-confirm" -->
+                <button type="submit"class="button is-medium" (click)="orderCheckout(form)" routerLink="/order-confirm">Submit</button>
               </div>
-      </form>        
+      </form>    
+      
+     
     </div>
+            
+  </div>
   </section>
 </section>

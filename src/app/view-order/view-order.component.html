@@ -1,13 +1,38 @@
+
 <!--view order component-->
-<section class="hero is-dark is-fullheight is-bold">
-    <div class="hero-body">
+<section class="hero is-white  is-fullheight is-bold">
+    
       <div class="container">
-        <h1 class="title">
-          View Order!
+        <h1 class="title has-text-centered">
+          Track Order
         </h1>
-        <h3 class="subtitle">
-          This is the page to view an order.
-        </h3>
+        <div class="columns is-centered has-text-centered">
+            <div class="sis-two-fifths">
+               <form id="distance_form" #trackForm="ngForm" (ngSubmit)="onSubmit(trackForm.value)" name="firstName">
+              <label for="orderNumber">Order Number:</label>
+              <input autocomplete="off"  type="text" placeholder="Enter Order #" class="is-small input is-centered" name="orderNumber" ngModel><br>
+              <button class="button is-small is-danger is-rounded" type="submit">Submit</button>
+               </form>
+            </div>
       </div>
+
+      <table onload="ini()" class="table  is-narrow is-hoverable is-three-fifths">
+        <tr>
+          <th>Name</th>
+          <th>Shipping From</th>
+          <th>Shipping To</th>
+          <th>Tier</th>
+        </tr>
+        <tr>
+          <td>{{orderDetails.firstName + " " + orderDetails.lastName}}</td>
+          <td id="from">{{orderDetails.shippingFrom}}</td>
+          <td id="to">{{orderDetails.shippingTo}}</td>
+          <td>{{orderDetails.tier}}</td>
+        </tr>
+          
+      </table>
+
+
+
     </div>
   </section>
