@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 // import * as moment from 'moment';
+=======
+>>>>>>> fixed order confirm page
 import { OrderService } from '../shared/order.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
