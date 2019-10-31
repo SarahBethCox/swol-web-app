@@ -50,6 +50,8 @@ export class OrderConfirmComponent implements OnInit {
     
     return this.orderNumber;
   }
+  
+  
 
   submitOrder(){
    
