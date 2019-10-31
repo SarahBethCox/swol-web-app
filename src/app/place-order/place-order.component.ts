@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 // import * as moment from 'moment';
+=======
+>>>>>>> 77841a088559bf91217e1ba7be40eaceab320325
 import { OrderService } from '../shared/order.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';

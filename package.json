@@ -22,7 +22,10 @@
     "@angular/router": "~8.2.0",
     "bulma": "^0.7.5",
     "bulma-divider": "^0.2.0",
+<<<<<<< HEAD
     "moment": "^2.24.0",
+=======
+>>>>>>> 77841a088559bf91217e1ba7be40eaceab320325
     "firebase": "^7.2.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
