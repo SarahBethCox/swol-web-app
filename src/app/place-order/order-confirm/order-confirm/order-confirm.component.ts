@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { OrderService } from 'src/app/shared/order.service';
 import { AngularFirestore } from '@angular/fire/firestore';
-import undefined = require('firebase/empty-import');
+
 
 
 @Component({
@@ -50,6 +50,8 @@ export class OrderConfirmComponent implements OnInit {
     
     return this.orderNumber;
   }
+  
+  
 
   submitOrder(){
    
