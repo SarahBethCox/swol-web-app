@@ -1,10 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { OrderService } from 'src/app/shared/order.service';
-<<<<<<< HEAD
 import { AngularFirestore } from '@angular/fire/firestore';
-import undefined = require('firebase/empty-import');
-=======
->>>>>>> fixed order confirm page
+// import undefined = require('firebase/empty-import');
 
 
 @Component({
@@ -19,15 +16,10 @@ export class OrderConfirmComponent implements OnInit {
   from:string;
   to:string
   tier:number;
-<<<<<<< HEAD
   orderNumber:string;
   randNum:number;
 
   constructor(private service:OrderService,private firestore:AngularFirestore) {
-=======
-  
-  constructor(private service:OrderService) {
->>>>>>> fixed order confirm page
      
   }
 
