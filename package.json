@@ -15,21 +15,33 @@
     "@angular/common": "~8.2.0",
     "@angular/compiler": "~8.2.0",
     "@angular/core": "~8.2.0",
+    "@angular/fire": "^5.2.1",
     "@angular/forms": "~8.2.0",
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
+    "angularfire2": "^5.2.1",
     "bulma": "^0.7.5",
     "bulma-divider": "^0.2.0",
+<<<<<<< HEAD
+    "firebase": "^7.2.3",
+=======
+<<<<<<< HEAD
+>>>>>>> 8215e0d36ff0fc5da7631a3252dd82af1f5d67fd
+    "moment": "^2.24.0",
+=======
+>>>>>>> 77841a088559bf91217e1ba7be40eaceab320325
+    "firebase": "^7.2.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.802.2",
-    "@angular/cli": "~8.2.1",
+    "@angular/cli": "^8.2.2",
     "@angular/compiler-cli": "~8.2.0",
     "@angular/language-service": "~8.2.0",
+    "@types/googlemaps": "^3.38.0",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",

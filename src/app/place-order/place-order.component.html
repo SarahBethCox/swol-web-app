@@ -103,29 +103,31 @@
   <!--Form-->
   <section class="section is-medium">
     <div class="container">
-      <form (ngSubmit)="processForm()" #contactForm="ngForm">
+      <form (ngSubmit)="processForm(orderForm)" #orderForm="ngForm" autocomplete="off">
 
         <!--Name fields-->
         <div class="field">
-          <label class="label">Name</label>
-          <input type="text" name="name" class="input" placeholder="Your Name" [(ngModel)]="name" #nameInput="ngModel"
+          <label class="label">First Name</label>
+          <input type="text" [(ngModel)]="service.formData.firstName" #nameInput="ngModel" name="name" class="input" placeholder="Your Name" 
             required>
-          <!--Error if no name is provided-->
+          <!--Error if no name is provided--> 
           <div class="help is-error is-danger" *ngIf="nameInput.invalid && nameInput.touched">
             Your name is required.
           </div>
         </div>
 
+      
+
         <!--Ship From field-->
         <div class="field">
           <label class="label">Ship From:</label>
           <div class="select is-fullwidth">
-            <select (change)="selectChangeHandlerFrom($event)">
-              <option value="?"></option>
-              <option value="City1">City 1</option>
-              <option value="City2">City 2</option>
-              <option value="City3">City 3</option>
-              <option value="City4">City 4</option>
+            <select name ="from" [(ngModel)]=service.formData.shippingFrom (change)="selectChangeHandlerFrom($event)">
+                <option value="" disabled>From</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="New York">New York</option>
+                <option value="Colorado">Colorado</option>
+             
             </select>
           </div>
         </div>
@@ -134,20 +136,45 @@
         <div class="field">
           <label class="label">Ship To:</label>
           <div class="select is-fullwidth">
-            <select (change)="selectChangeHandlerTo($event)">
-              <option value="?"></option>
-              <option value="City1">City 1</option>
-              <option value="City2">City 2</option>
-              <option value="City3">City 3</option>
-              <option value="City4">City 4</option>
+            <select name = "to" [(ngModel)]=service.formData.shippingto (change)="selectChangeHandlerTo($event)">
+                <option value="" disabled>To</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="New York">New York</option>
+                <option value="Colorado">Colorado</option>
             </select>
           </div>
         </div>
 
+
+        <div class="control">
+            <label class="radio">
+              <input type="radio" name="tierOption" value="1" [(ngModel)]=service.formData.tier>
+              Tier One
+            </label>
+
+            <label class="radio">
+              <input type="radio" name="tierOption" value="2" [(ngModel)]=service.formData.tier>
+              Tier Two
+            </label>
+
+            <label class="radio">
+                <input type="radio" name="tierOption" value="3" [(ngModel)]=service.formData.tier>
+                Tier Three
+            </label>
+
+            <label class="radio">
+                <input type="radio" name="tierOption" value="4" [(ngModel)]=service.formData.tier>
+                Tier Four
+            </label>
+          </div> 
+         
+
+
+
         <!--Submit Button-->
-        <button type="submit" class="button is-light is-large" [disabled]="contactForm.invalid" routerLink="/order-confirm">
-          Sumbit
-        </button>
+        <button type="submit" class="button is-light is-large" [disabled]="orderForm.invalid" >Submit</button>
+          
+       
       </form>
     </div>
   </section>
