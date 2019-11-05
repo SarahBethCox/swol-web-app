@@ -10,41 +10,26 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './place-order.component.html',
   styleUrls: ['./place-order.component.css']
 })
-
-
-
-
-
 export class PlaceOrderComponent implements OnInit {
   name: string;
   shipFrom: string;
   shipTo: string;
   tier: string;
 
-  orderDetails:any;
-  
-
-
   constructor(private service:OrderService,
-              private route:ActivatedRoute,
-              private router:Router) { }
+    private route:ActivatedRoute,
+    private router:Router) { }
 
- 
-  ngOnInit() {  
-
+  ngOnInit() {
     this.service.formData ={
       firstName: '',
       shippingFrom: '',
       shippingTo: '',
       tier: null
     };
-
   }
 
-
-
   processForm(orderForm: NgForm) {
-    
     var service = new google.maps.DistanceMatrixService;
    
     service.getDistanceMatrix({
@@ -69,9 +54,10 @@ export class PlaceOrderComponent implements OnInit {
     this.service.shareOrderData(orderForm.value);
     this.router.navigate(['/order-confirm']);
 
-
+    // const allInfo = `My name is ${this.name}. I'm shipping from ${this.shipFrom}. I'm shipping to ${this.shipTo}. My tier is ${this.tier}.`;
+    // alert(allInfo);
   }
-  
+
   selectChangeHandlerFrom (event: any) {
     this.shipFrom = event.target.value;
   }

@@ -1,0 +1,5 @@
+.hero {
+    background-image: url('/assets/img/plane-background.jpg') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+}   

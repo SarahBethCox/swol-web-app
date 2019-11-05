@@ -107,7 +107,7 @@
 
         <!--Name fields-->
         <div class="field">
-          <label class="label">First Name</label>
+          <label class="label  has-text-white">First Name</label>
           <input type="text" [(ngModel)]="service.formData.firstName" #nameInput="ngModel" name="name" class="input" placeholder="Your Name" 
             required>
           <!--Error if no name is provided--> 
@@ -120,7 +120,7 @@
 
         <!--Ship From field-->
         <div class="field">
-          <label class="label">Ship From:</label>
+          <label class="label has-text-white">Ship From:</label>
           <div class="select is-fullwidth">
             <select name ="from" [(ngModel)]=service.formData.shippingFrom (change)="selectChangeHandlerFrom($event)">
                 <option value="" disabled>From</option>
@@ -134,7 +134,7 @@
 
         <!--Ship To field-->
         <div class="field">
-          <label class="label">Ship To:</label>
+          <label class="label has-text-white">Ship To:</label>
           <div class="select is-fullwidth">
             <select name = "to" [(ngModel)]=service.formData.shippingto (change)="selectChangeHandlerTo($event)">
                 <option value="" disabled>To</option>

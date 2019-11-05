@@ -14,7 +14,6 @@ import { OrderConfirmComponent } from './place-order/order-confirm/order-confirm
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { SignInComponent } from './admin-view/sign-in/sign-in.component';
 
-
 import {AngularFireModule} from "@angular/fire";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import { environment } from 'src/environments/environment';
@@ -25,8 +24,6 @@ import { OrderService } from './shared/order.service';
 import { importType } from '@angular/compiler/src/output/output_ast';
 
 
-
- 
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +43,7 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     FormsModule,
     CoreModule
   ],
-  providers: [OrderService],//
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
