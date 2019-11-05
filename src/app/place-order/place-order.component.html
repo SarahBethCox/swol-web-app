@@ -107,18 +107,18 @@
 
         <!--Name fields-->
         <div class="field">
-          <label class="label">Name</label>
+          <label class="label has-text-white is-size-5">Name</label>
           <input type="text" name="name" class="input" placeholder="Your Name" [(ngModel)]="name" #nameInput="ngModel"
             required>
           <!--Error if no name is provided-->
-          <div class="help is-error is-danger" *ngIf="nameInput.invalid && nameInput.touched">
+          <div class="help is-error is-danger is-size-6" *ngIf="nameInput.invalid && nameInput.touched">
             Your name is required.
           </div>
         </div>
 
         <!--Ship From field-->
         <div class="field">
-          <label class="label">Ship From:</label>
+          <label class="label has-text-white is-size-5">Ship From:</label>
           <div class="select is-fullwidth">
             <select (change)="selectChangeHandlerFrom($event)">
               <option value="?"></option>
@@ -132,7 +132,7 @@
 
         <!--Ship To field-->
         <div class="field">
-          <label class="label">Ship To:</label>
+          <label class="label has-text-white is-size-5">Ship To:</label>
           <div class="select is-fullwidth">
             <select (change)="selectChangeHandlerTo($event)">
               <option value="?"></option>
