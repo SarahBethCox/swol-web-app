@@ -24,6 +24,7 @@
     "bulma": "^0.7.5",
     "bulma-divider": "^0.2.0",
     "firebase": "^7.2.3",
+    "graceful-fs": "^4.2.3",
     "moment": "^2.24.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

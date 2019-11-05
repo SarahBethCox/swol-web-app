@@ -107,11 +107,11 @@
 
         <!--Name fields-->
         <div class="field">
-          <label class="label  has-text-white">First Name</label>
+          <label class="label has-text-white is-size-5">First Name</label>
           <input type="text" [(ngModel)]="service.formData.firstName" #nameInput="ngModel" name="name" class="input" placeholder="Your Name" 
             required>
           <!--Error if no name is provided--> 
-          <div class="help is-error is-danger" *ngIf="nameInput.invalid && nameInput.touched">
+          <div class="help is-error is-danger is-size-6" *ngIf="nameInput.invalid && nameInput.touched">
             Your name is required.
           </div>
         </div>
@@ -147,22 +147,22 @@
 
 
         <div class="control">
-            <label class="radio">
-              <input type="radio" name="tierOption" value="1" [(ngModel)]=service.formData.tier>
+            <label class="radio has-text-white is-size-5" >
+              <input type="radio" name="tierOption" value="1" [(ngModel)]=service.formData.tier >
               Tier One
             </label>
 
-            <label class="radio">
+            <label class="radio has-text-white is-size-5">
               <input type="radio" name="tierOption" value="2" [(ngModel)]=service.formData.tier>
               Tier Two
             </label>
 
-            <label class="radio">
+            <label class="radio has-text-white is-size-5">
                 <input type="radio" name="tierOption" value="3" [(ngModel)]=service.formData.tier>
                 Tier Three
             </label>
 
-            <label class="radio">
+            <label class="radio has-text-white is-size-5">
                 <input type="radio" name="tierOption" value="4" [(ngModel)]=service.formData.tier>
                 Tier Four
             </label>
