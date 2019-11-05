@@ -36,7 +36,7 @@
                                     <input 
                                       class="input" 
                                       type="text" 
-                                      value= {{name}}
+                                      placeholder="First Name"
                                       required>
                                   </p>
                                 </div>
@@ -62,7 +62,7 @@
                                     <input
                                       class="input"
                                       type="text"
-                                      value={{from}}>
+                                      placeholder="Shipping From">
                                   </p>
                                 </div>
                               </div>
@@ -78,7 +78,7 @@
                                       <input
                                         class="input"
                                         type="text"
-                                        value={{to}}>
+                                        placeholder="Shipping To">
                                     </p>
                                   </div>
                                 </div>
@@ -86,7 +86,7 @@
                               <!--Tier Package-->
                               <div class="field is-horizontal">
                                   <div class="field-label is-normal">
-                                    <label class="label">  Tier:</label>
+                                    <label class="label">Tier:</label>
                                   </div>
                                   <div class="field-body">
                                     <div class="field">
@@ -94,7 +94,7 @@
                                         <input
                                           class="input"
                                           type="text"
-                                          value={{tier}}>
+                                          placeholder="Tier Package">
                                       </p>
                                     </div>
                                   </div>
@@ -108,38 +108,15 @@
                     <div class="tile is-child box">
                         <p class="title has-text-dark">
                             Order Summary:
-
-                           
                         </p>
                         <div class="content">
-                            <div class="field is-horizontal">
-                                <div class="field-label is-normal">
-                                  <label class="label">  Ditance:</label>
-                                </div>
-                                <div class="field-body">
-                                  <div class="field">
-                                    <p class="control">
-                                      <input id="distance"
-                                        class="input"
-                                        type="text"
-                                        value="" disabled>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                              
+                           
                         </div>
                     </div>
                 </div>
-                
             </div>
           </div>
         </div> 
-        <button type="submit"class="button is-medium" (click)="submitOrder()" >Order</button>
       </div>
-      
     </section>
-
-
-   
 </section>
