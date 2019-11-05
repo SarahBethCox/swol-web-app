@@ -2,10 +2,10 @@
 <section class="hero is-light is-bold">
     <div class="hero-body">
         <div class="container">
-            <h1 class="title">
+            <h1 class="title has-text-white">
                 Contact Us!
             </h1>
-            <h3 class="subtitle">
+            <h3 class="subtitle has-text-white">
                 This is the page to contact us.
             </h3>
         </div>
@@ -16,7 +16,7 @@
           <form (ngSubmit)="processForm()" #contactForm="ngForm">
               <!--Name-->
               <div class="field">
-                <label class="label">Name</label>
+                <label class="label has-text-white is-size-5">Name</label>
                   <input 
                       type="text" 
                       name="name" 
@@ -26,13 +26,13 @@
                       #nameInput="ngModel"
                       required>
                   <!--Error if no name is provided-->
-                  <div class="help is-error is-danger" *ngIf="nameInput.invalid && nameInput.touched">
+                  <div class="help is-error is-danger is-size-6" *ngIf="nameInput.invalid && nameInput.touched">
                       Your name is required.
                   </div>
               </div>
               <!--Email-->
               <div class="field">
-                <label class="label">Email</label>
+                <label class="label has-text-white is-size-5">Email</label>
                   <input 
                       type="email" 
                       name="email" 
@@ -43,13 +43,13 @@
                       required
                       email>
                   <!--Error if no email is provided-->
-                  <div class="help is-error is-danger" *ngIf="emailInput.invalid && emailInput.touched">
+                  <div class="help is-error is-danger is-size-6" *ngIf="emailInput.invalid && emailInput.touched">
                       Your email is required.
                   </div>
               </div>
               <!--Message-->
               <div class="field">
-                <label class="label">Message</label>
+                <label class="label has-text-white is-size-5">Message</label>
                   <textarea 
                       class="textarea" 
                       name="message" 
@@ -59,14 +59,14 @@
                       required
                   ></textarea>
                   <!--Error if no name is provided-->
-                  <div class="help is-error is-danger" *ngIf="messageInput.invalid && messageInput.touched">
+                  <div class="help is-error is-danger is-size-6" *ngIf="messageInput.invalid && messageInput.touched">
                       A message is required.
                   </div>
               </div>
               <!--Submit Button-->
               <button 
                   type="submit" 
-                  class="button is-primary is-large"
+                  class="button is-light is-large"
                   [disabled]="contactForm.invalid">
                   Sumbit
               </button>
