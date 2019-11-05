@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Order } from './order.model';
 import {BehaviorSubject} from 'rxjs';
 import { SubjectSubscriber } from 'rxjs/internal/Subject';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,10 @@ export class OrderService {
     this.orderInfo.next(details);
   }
 
-  constructor() { }
+ 
+
+  constructor(private firestore:AngularFirestore) { }
 
  
-  
+
 }

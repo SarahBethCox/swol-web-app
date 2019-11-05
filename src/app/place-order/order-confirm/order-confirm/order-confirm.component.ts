@@ -18,7 +18,7 @@ export class OrderConfirmComponent implements OnInit {
   tier:number;
   orderNumber:string;
   randNum:number;
-
+  showOrderNumber:string;
   constructor(private service:OrderService,private firestore:AngularFirestore) {
      
   }
@@ -56,11 +56,13 @@ export class OrderConfirmComponent implements OnInit {
   submitOrder(){
    
     this.orderDetails.orderNumber = this.createOrderNumber();
+    this.orderDetails.orderNumber = this.createOrderNumber();
+    // if(this.firestore.collection('orders').add(this.orderDetails)){
+    //   alert(this.orderDetails.name + " your order was stored");
+    // }
+    this.firestore.collection('orders').doc(this.orderDetails.orderNumber).set(this.orderDetails);
 
-    if(this.firestore.collection('orders').add(this.orderDetails)){
-      alert(this.orderDetails.name + " your order was stored");
-    }
-  
+    alert("Your order number is " + this.orderDetails.orderNumber);
   }
   
   
