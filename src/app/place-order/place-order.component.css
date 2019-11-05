@@ -1,0 +1,6 @@
+.tierImgs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 0px;
+}
