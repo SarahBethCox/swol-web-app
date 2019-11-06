@@ -2,12 +2,39 @@
 <section class="hero is-dark is-fullheight is-bold">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">
+        <h1 class="title has-text-centered">
           View Order!
         </h1>
-        <h3 class="subtitle">
-          This is the page to view an order.
-        </h3>
+        <div class="columns is-centered has-text-centered">
+          <div class="sis-two-fifths">
+
+             <form #trackForm="ngForm" (ngSubmit)="trackOrder(trackForm)">
+            <label for="orderNumber">Order Number:</label>
+           
+            <input type="text" placeholder="Enter Order #" class="is-small input is-centered" name="orderNumberInput" ngModel><br>
+            <button class="button is-small is-danger is-rounded" type="submit">Submit</button>
+             </form>
+
+          </div>
+
+          
+    </div>
+    
       </div>
+      <table onload="ini()" class="table  is-narrow is-hoverable is-three-fifths">
+          <tr>
+            <th>Name</th>
+            <th>Shipping From</th>
+            <th>Shipping To</th>
+            <th>Tier</th>
+          </tr>
+          <tr>
+            <td id="name"></td>
+            <td id="from"></td>
+            <td id="to"></td>
+            <td id="tier"></td>
+          </tr>
+            
+        </table>
     </div>
   </section>
