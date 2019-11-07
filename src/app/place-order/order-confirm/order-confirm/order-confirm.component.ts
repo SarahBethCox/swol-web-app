@@ -24,21 +24,17 @@ export class OrderConfirmComponent implements OnInit {
   }
 
   ngOnInit() {
-   this.service.currentOrderInfo.subscribe(
-    (orderData)=>{
-      this.orderDetails = Object.assign({}, orderData);
-    }
-   )
+    this.service.currentOrderInfo.subscribe(
+      (orderData)=>{
+        this.orderDetails = Object.assign({}, orderData);
+      });
 
+      this.name = this.orderDetails.name;
+      this.from = this.orderDetails.from;
+      this.to = this.orderDetails.to;
+      this.tier = this.orderDetails.tierOption;
 
-  
-  this.name = this.orderDetails.name;
-  this.from = this.orderDetails.from;
-  this.to = this.orderDetails.to;
-  this.tier = this.orderDetails.tierOption;
-    // console.log(this.orderDetails);
   }
-  
   createOrderNumber(){
     this.orderNumber='';
     
@@ -50,9 +46,6 @@ export class OrderConfirmComponent implements OnInit {
     
     return this.orderNumber;
   }
-  
-  
-
   submitOrder(){
    
     this.orderDetails.orderNumber = this.createOrderNumber();
