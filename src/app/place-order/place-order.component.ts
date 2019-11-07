@@ -16,14 +16,46 @@ export class PlaceOrderComponent implements OnInit {
   shipTo: string;
   tier: string;
 
-  constructor() { }
+  constructor(private service:OrderService,
+    private route:ActivatedRoute,
+    private router:Router) { }
 
   ngOnInit() {
+    this.service.formData ={
+      firstName: '',
+      shippingFrom: '',
+      shippingTo: '',
+      tier: null
+    };
   }
 
-  processForm() {
-    const allInfo = `My name is ${this.name}. I'm shipping from ${this.shipFrom}. I'm shipping to ${this.shipTo}. My tier is ${this.tier}.`;
-    alert(allInfo);
+  processForm(orderForm: NgForm) {
+    var service = new google.maps.DistanceMatrixService;
+   
+    service.getDistanceMatrix({
+      origins: [orderForm.value.from],
+      destinations: [orderForm.value.to],
+      
+      travelMode: google.maps.TravelMode.DRIVING,
+      unitSystem: google.maps.UnitSystem.IMPERIAL,
+      avoidHighways: false,
+      avoidTolls: false
+    },function(res, status){
+      if (status !== google.maps.DistanceMatrixStatus.OK) {
+        alert('Error was: ' + status);
+      } else {
+        //console.log(res.rows[0].elements[0].distance.text);
+        document.getElementById('distance').setAttribute('value', res.rows[0].elements[0].distance.text);
+        
+      }
+    });
+    
+
+    this.service.shareOrderData(orderForm.value);
+    this.router.navigate(['/order-confirm']);
+
+    // const allInfo = `My name is ${this.name}. I'm shipping from ${this.shipFrom}. I'm shipping to ${this.shipTo}. My tier is ${this.tier}.`;
+    // alert(allInfo);
   }
 
   selectChangeHandlerFrom (event: any) {
