@@ -16,8 +16,10 @@
   <section class="section">
     <div class="container">
       <div class="columns">
-        <div class="column">
-          <div class=" notification has-text-dark">
+
+        <div class="column">  
+          <a href="#bottom">
+          <div id="tierBannerOption" class=" notification has-text-dark">
               <div class="column tierImgs">
               <figure class=" image is-96x96 ">
                   <img src="../../assets/img/tierOne.png">
@@ -32,7 +34,9 @@
               Limits far yet turned highly repair parish talked six. Draw fond rank form nor the day eat.
             </p>
           </div>
+        </a> 
         </div>
+
         <div class="column">
           <div class="notification has-text-dark">
               <div class="column tierImgs">
@@ -103,40 +107,59 @@
   <!--Form-->
   <section class="section is-medium">
     <div class="container">
+
+
+      <div class="help is-error is-danger is-size-6" *ngIf="tierInput.invalid && tierInput.touched || nameInput.invalid && nameInput.touched || fromInput.invalid && fromInput.touched ||toInput.invalid && toInput.touched">
+          Please comple the required inputs
+      </div>
+
+
       <form (ngSubmit)="processForm(orderForm)" #orderForm="ngForm" autocomplete="off">
 
         <!--Name fields-->
         <div class="field">
-          <label class="label has-text-white is-size-5">First Name</label>
+          <label class="label has-text-white is-size-5">First Name
+            <!--Error if no name is provided--> 
+            <div class="help is-error is-danger is-size-6" *ngIf="nameInput.invalid && nameInput.touched">
+              *
+            </div>
+          </label>
           <input type="text" [(ngModel)]="service.formData.firstName" #nameInput="ngModel" name="name" class="input" placeholder="Your Name" 
             required>
-          <!--Error if no name is provided--> 
-          <div class="help is-error is-danger is-size-6" *ngIf="nameInput.invalid && nameInput.touched">
-            Your name is required.
-          </div>
+          
         </div>
 
       
 
         <!--Ship From field-->
         <div class="field">
-          <label class="label has-text-white">Ship From:</label>
+          <label class="label has-text-white">Ship From:
+            <div class="help is-error is-danger is-size-6" *ngIf="fromInput.invalid && fromInput.touched">
+            *
+            </div>
+          </label>
           <div class="select is-fullwidth">
-            <select name ="from" [(ngModel)]=service.formData.shippingFrom (change)="selectChangeHandlerFrom($event)">
+            <select name ="from" #fromInput="ngModel" [(ngModel)]=service.formData.shippingFrom (change)="selectChangeHandlerFrom($event)" required>
                 <option value="" disabled>From</option>
                 <option value="Arkansas">Arkansas</option>
                 <option value="New York">New York</option>
                 <option value="Colorado">Colorado</option>
              
             </select>
+            
+
           </div>
         </div>
 
         <!--Ship To field-->
         <div class="field">
-          <label class="label has-text-white">Ship To:</label>
+          <label class="label has-text-white">Ship To:
+            <div class="help is-error is-danger is-size-6" *ngIf="toInput.invalid && toInput.touched">
+            *
+            </div>
+          </label>
           <div class="select is-fullwidth">
-            <select name = "to" [(ngModel)]=service.formData.shippingto (change)="selectChangeHandlerTo($event)">
+            <select name = "to" #toInput="ngModel" [(ngModel)]=service.formData.shippingto (change)="selectChangeHandlerTo($event)" required>
                 <option value="" disabled>To</option>
                 <option value="Arkansas">Arkansas</option>
                 <option value="New York">New York</option>
@@ -147,25 +170,35 @@
 
 
         <div class="control">
+
+          <!-- Displays message when there is no input -->
+            <label class="label has-text-white">Tier:
+                <div class="help is-error is-danger is-size-6" *ngIf="tierInput.invalid && tierInput.touched">
+                    *
+                </div>
+            </label>
+
+
             <label class="radio has-text-white is-size-5" >
-              <input type="radio" name="tierOption" value="1" [(ngModel)]=service.formData.tier >
+              <input type="radio" #tierInput="ngModel"name="tierOption" value="1" [(ngModel)]=service.formData.tier required>
               Tier One
             </label>
 
             <label class="radio has-text-white is-size-5">
-              <input type="radio" name="tierOption" value="2" [(ngModel)]=service.formData.tier>
+              <input type="radio" #tierInput="ngModel"name="tierOption" value="2" [(ngModel)]=service.formData.tier>
               Tier Two
             </label>
 
             <label class="radio has-text-white is-size-5">
-                <input type="radio" name="tierOption" value="3" [(ngModel)]=service.formData.tier>
+                <input type="radio"#tierInput="ngModel" name="tierOption" value="3" [(ngModel)]=service.formData.tier>
                 Tier Three
             </label>
 
             <label class="radio has-text-white is-size-5">
-                <input type="radio" name="tierOption" value="4" [(ngModel)]=service.formData.tier>
+                <input type="radio" #tierInput="ngModel"name="tierOption" value="4" [(ngModel)]=service.formData.tier>
                 Tier Four
             </label>
+            
           </div> 
          
 
@@ -179,6 +212,8 @@
         <button type="submit" class="button is-light is-large" [disabled]="orderForm.invalid" >Submit</button>
 
       </form>
+   
+      <div id="bottom"></div>
     </div>
   </section>
 </section>
