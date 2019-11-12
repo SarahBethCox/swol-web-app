@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { type } from 'os';
 import { BrowserStack } from 'protractor/built/driverProviders';
+import { formatCurrency, CurrencyPipe } from '@angular/common';
 
 
 @Component({
@@ -102,9 +103,9 @@ export class PlaceOrderComponent implements OnInit {
          distance = temp + temp2;
          
       //  vm.distance = Number(document.getElementById('distance').getAttribute('value'));
-         document.getElementById('tierPrice').setAttribute('value',vm.getTierCost(Number(orderDetails.tierOption),Number(distance))); 
-         document.getElementById('tax').setAttribute('value',Number(vm.getTierCost(Number(orderDetails.tierOption),Number(distance))*vm.tax).toString()); 
-         document.getElementById('total').setAttribute('value',(Number(vm.getTierCost(Number(orderDetails.tierOption),Number(distance))) + Number(vm.getTierCost(Number(orderDetails.tierOption),Number(distance))*vm.tax)).toString()); 
+         document.getElementById('tierPrice').setAttribute('value',"$"+vm.getTierCost(Number(orderDetails.tierOption),Number(distance))); 
+         document.getElementById('tax').setAttribute('value',"$"+Number(vm.getTierCost(Number(orderDetails.tierOption),Number(distance))*vm.tax).toString()); 
+         document.getElementById('total').setAttribute('value',"$"+(Number(vm.getTierCost(Number(orderDetails.tierOption),Number(distance))) + Number(vm.getTierCost(Number(orderDetails.tierOption),Number(distance))*vm.tax)).toString()); 
 
         }
     }
