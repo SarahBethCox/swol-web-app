@@ -1,0 +1,177 @@
+<!--place order page component-->
+<!--Page Title/Header-->
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="has-text-centered container">
+      <h1 class="title">
+        Place Order!
+      </h1>
+      <h3 class="subtitle">
+        Review our offered services and tell us what you want!
+      </h3>
+    </div>
+  </div>
+
+  <!--Description of tiers-->
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class=" notification has-text-dark">
+              <div class="column tierImgs">
+              <figure class=" image is-96x96 ">
+                  <img src="../../assets/img/tierOne.png">
+              </figure>
+            </div>
+            <h1 class="title has-text-centered has-text-dark is-size-4">Tier 1</h1>
+            <h3 class="subtitle has-text-centered has-text-dark is-size-6">Basic Transportation</h3>
+            <p class="is-size-6">
+              <!--Description-->
+              Our first tier of transportation provides a heavily armored truck driven by one of our highly trained security guards.
+              This is for those that require a safe passage from point A to point B, but at a cost-efficient rate.
+          </div>
+        </div>
+        <div class="column">
+          <div class="notification has-text-dark">
+              <div class="column tierImgs">
+                  <figure class=" image is-96x96 ">
+                      <img src="../../assets/img/TierTwo.png">
+                  </figure>
+                </div>
+            <h1 class="title has-text-centered has-text-dark is-size-4">Tier 2</h1>
+            <h3 class="subtitle has-text-centered has-text-dark is-size-6">Secure Transportation</h3>
+            <p class="is-size-6">
+              For those needing a reliable transport with added security, our second tier is the best option.
+              It supplies the same armored truck as the first, but loaded with an accompanying guard sitting with your goods.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="notification has-text-dark">
+              <div class="column tierThree tierImgs">
+                  <figure class=" image is-96x96">
+                      <img src="../../assets/img/TierThree.png">
+                  </figure>
+                </div>
+            <h1 class="title has-text-centered has-text-dark is-size-4">Tier 3</h1>
+            <h3 class="subtitle  has-text-centered has-text-dark is-size-6">Convoy Transportation</h3>
+            <p class="is-size-6">
+              Our third tier takes security to the next level. It provides three armored trucks, with two highly trained security guards in each.
+              This convoy provides maximum truck security as well as more cargo space for your goods.
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="notification has-text-dark">
+              <div class="column tierImgs">
+                  <figure class=" image is-96x96 ">
+                      <img src="../../assets/img/TierFour.png">
+                  </figure>
+                </div>
+            <h1 class="title has-text-centered has-text-dark is-size-4">Tier 4</h1>
+            <h3 class="subtitle has-text-centered has-text-dark is-size-6">Cargo Transportation</h3>
+            <p class="is-size-6">
+              Tier 4 takes luggage to the skies.
+              Your goods are loaded into a cargo plane and flown to a landing strip near your desired drop off location.
+              On top of that, your goods will be escorted by our Tier 3 convoy to and from the cargo plane.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Form Title/Header-->
+  <section class="section is-medium">
+    <div class="container">
+      <h1 class="title is-1 has-text-centered">
+        Like what you see?
+      </h1>
+      <h3 class="subtitle has-text-centered">
+        Place an order using the form below.
+      </h3>
+    </div>
+  </section>
+
+  <!--Form-->
+  <section class="section is-medium">
+    <div class="container">
+      <form (ngSubmit)="processForm(orderForm)" #orderForm="ngForm" autocomplete="off">
+
+        <!--Name fields-->
+        <div class="field">
+          <label class="label has-text-white is-size-5">First Name</label>
+          <input type="text" [(ngModel)]="service.formData.firstName" #nameInput="ngModel" name="name" class="input" placeholder="Your Name" 
+            required>
+          <!--Error if no name is provided--> 
+          <div class="help is-error is-danger is-size-6" *ngIf="nameInput.invalid && nameInput.touched">
+            Your name is required.
+          </div>
+        </div>
+
+      
+
+        <!--Ship From field-->
+        <div class="field">
+          <label class="label has-text-white">Ship From:</label>
+          <div class="select is-fullwidth">
+            <select name ="from" [(ngModel)]=service.formData.shippingFrom (change)="selectChangeHandlerFrom($event)">
+                <option value="" disabled>From</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="New York">New York</option>
+                <option value="Colorado">Colorado</option>
+             
+            </select>
+          </div>
+        </div>
+
+        <!--Ship To field-->
+        <div class="field">
+          <label class="label has-text-white">Ship To:</label>
+          <div class="select is-fullwidth">
+            <select name = "to" [(ngModel)]=service.formData.shippingto (change)="selectChangeHandlerTo($event)">
+                <option value="" disabled>To</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="New York">New York</option>
+                <option value="Colorado">Colorado</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="control">
+            <label class="radio has-text-white is-size-5" >
+              <input type="radio" name="tierOption" value="1" [(ngModel)]=service.formData.tier >
+              Tier One
+            </label>
+
+            <label class="radio has-text-white is-size-5">
+              <input type="radio" name="tierOption" value="2" [(ngModel)]=service.formData.tier>
+              Tier Two
+            </label>
+
+            <label class="radio has-text-white is-size-5">
+                <input type="radio" name="tierOption" value="3" [(ngModel)]=service.formData.tier>
+                Tier Three
+            </label>
+
+            <label class="radio has-text-white is-size-5">
+                <input type="radio" name="tierOption" value="4" [(ngModel)]=service.formData.tier>
+                Tier Four
+            </label>
+          </div> 
+         
+
+
+
+        <!--Submit Button-->
+        <div class="field">
+          <label> </label>
+        </div> 
+
+        <button type="submit" class="button is-light is-large" [disabled]="orderForm.invalid" >Submit</button>
+
+      </form>
+    </div>
+  </section>
+</section>
