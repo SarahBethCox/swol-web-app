@@ -110,6 +110,7 @@
                             Order Summary:
                         </p>
 
+                        <!-- Distance -->
                         <div class="content">
                            <div class="field is-horizontal">
                                 <div class="field-label is-normal">
@@ -127,13 +128,72 @@
                                 </div>
                               </div>
                         </div>
+                        
+                        
+                        <!-- Price -->
+                        <div class="content">
+                            <div class="field is-horizontal">
+                                 <div class="field-label is-normal">
+                                   <label class="label">  Tier Price:</label>
+                                 </div>
+                                 <div class="field-body">
+                                   <div class="field">
+                                     <p class="control">
+                                       <input  id="tierPrice"
+                                         class="input"
+                                         type="text"
+                                         value="" disabled>
+                                     </p>
+                                   </div>
+                                 </div>
+                               </div>
+                         </div>
+                        <!-- Tier Price -->
+                        <div class="content">
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                  <label class="label">  Tax :</label>
+                                </div>
+                                <div class="field-body">
+                                  <div class="field">
+                                    <p class="control">
+                                      <input  id="tax"
+                                        class="input"
+                                        type="text"
+                                        value="" disabled>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+
+                        <!-- Tax -->
+                        <div class="content">
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                  <label class="label">  Total:</label>
+                                </div>
+                                <div class="field-body">
+                                  <div class="field">
+                                    <p class="control">
+                                      <input  id="total"
+                                        class="input"
+                                        type="text"
+                                        value="" disabled>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>
+
+                         
                     </div>
                 </div>
             </div>
           </div>
         </div> 
         <button type="submit"class="button is-medium" (click)="submitOrder()" >Order</button>
-
+        <button type="submit"class="button is-medium" (click)="cancelOrder()" >Cancel</button>
       </div>
     </section>
 </section>

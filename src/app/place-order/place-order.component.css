@@ -10,3 +10,9 @@
     background-size: cover;
     background-repeat: no-repeat;
 }   
+.is-error{
+    display: inline-block;
+}
+#tierBannerOption:hover {
+    border: 2px solid #22BB33  ;
+}

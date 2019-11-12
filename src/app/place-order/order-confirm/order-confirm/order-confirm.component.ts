@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { OrderService } from 'src/app/shared/order.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ActivatedRoute, Router } from '@angular/router';
 // import undefined = require('firebase/empty-import');
 
 
@@ -16,10 +17,17 @@ export class OrderConfirmComponent implements OnInit {
   from:string;
   to:string
   tier:number;
+  distance:number;
   orderNumber:string;
   randNum:number;
   showOrderNumber:string;
-  constructor(private service:OrderService,private firestore:AngularFirestore) {
+  tierOnePrice = 10;
+  tierTwoPrice = 20;
+  tierThreePrice = 30;
+  tierFourPrice = 40;
+
+  constructor(private service:OrderService,private firestore:AngularFirestore,private route:ActivatedRoute,
+    private router:Router) {
      
   }
 
@@ -28,7 +36,8 @@ export class OrderConfirmComponent implements OnInit {
       (orderData)=>{
         this.orderDetails = Object.assign({}, orderData);
       });
-
+      // console.log("order-Confirm");
+      // console.log(this.orderDetails.distance);
       this.name = this.orderDetails.name;
       this.from = this.orderDetails.from;
       this.to = this.orderDetails.to;
@@ -56,6 +65,14 @@ export class OrderConfirmComponent implements OnInit {
     this.firestore.collection('orders').doc(this.orderDetails.orderNumber).set(this.orderDetails);
 
     alert("Your order number is " + this.orderDetails.orderNumber);
+  }
+  cancelOrder(){
+ 
+    if (confirm("Are you sure you want to cancel your order? ")) {
+      this.router.navigate(['/place-order']);
+  } else {
+     
+  }
   }
   
   
