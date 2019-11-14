@@ -11,7 +11,7 @@
     box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.11);
   }
   #login .login-card .card-title {
-    background-color: #00b89c;
+    background-color: #df303e;
     padding: 2rem;
   }
   #login .login-card .card-title h1 {
@@ -40,7 +40,7 @@
   #login .login-card #email:active, #login .login-card #email:focus,
   #login .login-card #password:active,
   #login .login-card #password:focus {
-    border-color: #00d1b2;
+    border-color: #df303e;
   }
   #login .login-card .checkbox {
     color: #b5b5b5;
@@ -59,18 +59,18 @@
   #login .login-card button {
     cursor: pointer;
     font-size: 1.2rem;
-    color: #00d1b2;
+    color: #df303e;
     border-radius: 4rem;
     display: block;
     width: 100%;
     background: transparent;
-    border: 2px solid #00d1b2;
+    border: 2px solid #df303e;
     padding: 0.9rem 0 1.1rem;
     transition: color 0.5s, border-color 0.5s;
   }
   #login .login-card button:hover, #login .login-card button:focus {
-    color: #009e86;
-    border-color: #009e86;
+    color: #df303e;
+    border-color: #df303e;
   }
   #login .login-card button:active {
     transform: translateY(1px);
