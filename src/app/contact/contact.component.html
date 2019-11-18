@@ -44,7 +44,7 @@
                       email>
                   <!--Error if no email is provided-->
                   <div class="help is-error is-danger is-size-6" *ngIf="emailInput.invalid && emailInput.touched">
-                      Your email is required.
+                      A valid email is required.
                   </div>
               </div>
               <!--Message-->
@@ -68,7 +68,7 @@
                   type="submit" 
                   class="button is-light is-large"
                   [disabled]="contactForm.invalid">
-                  Sumbit
+                  Send
               </button>
           </form>
         </div>
