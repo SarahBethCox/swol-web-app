@@ -2,7 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import { OrderService } from 'src/app/shared/order.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
-// import undefined = require('firebase/empty-import');
 
 
 @Component({
@@ -59,6 +58,12 @@ export class OrderConfirmComponent implements OnInit {
    
     this.orderDetails.orderNumber = this.createOrderNumber();
     this.orderDetails.orderNumber = this.createOrderNumber();
+    this.orderDetails.distance =  (<HTMLInputElement>document.getElementById('distance')).value;
+    this.orderDetails.tierPrice =  (<HTMLInputElement>document.getElementById('tierPrice')).value;
+    this.orderDetails.tax =  (<HTMLInputElement>document.getElementById('tax')).value;
+    this.orderDetails.total = (<HTMLInputElement>document.getElementById('total')).value;
+    console.log(this.orderDetails);
+
     // if(this.firestore.collection('orders').add(this.orderDetails)){
     //   alert(this.orderDetails.name + " your order was stored");
     // }

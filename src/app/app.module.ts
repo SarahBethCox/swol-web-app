@@ -22,6 +22,9 @@ import { environment } from 'src/environments/environment';
 
 import { OrderService } from './shared/order.service';
 import { importType } from '@angular/compiler/src/output/output_ast';
+import { CurrencyPipe } from '@angular/common';
+
+
 
 
 @NgModule({
@@ -43,7 +46,7 @@ import { importType } from '@angular/compiler/src/output/output_ast';
     FormsModule,
     CoreModule
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
