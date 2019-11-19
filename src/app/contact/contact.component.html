@@ -3,10 +3,10 @@
     <div class="hero-body">
         <div class="container">
             <h1 class="title has-text-white">
-                Contact Us!
+                Contact Us
             </h1>
             <h3 class="subtitle has-text-white">
-                This is the page to contact us.
+                Leave us a message!
             </h3>
         </div>
     </div>
@@ -44,7 +44,7 @@
                       email>
                   <!--Error if no email is provided-->
                   <div class="help is-error is-danger is-size-6" *ngIf="emailInput.invalid && emailInput.touched">
-                      Your email is required.
+                      A valid email is required.
                   </div>
               </div>
               <!--Message-->
@@ -56,11 +56,12 @@
                       placeholder="Your Message Here" 
                       [(ngModel)]="message"
                       #messageInput="ngModel"
+                      maxlength="150"
                       required
                   ></textarea>
                   <!--Error if no name is provided-->
                   <div class="help is-error is-danger is-size-6" *ngIf="messageInput.invalid && messageInput.touched">
-                      A message is required.
+                      A message is required and has a maximum of 150 characters.
                   </div>
               </div>
               <!--Submit Button-->
@@ -68,9 +69,12 @@
                   type="submit" 
                   class="button is-light is-large"
                   [disabled]="contactForm.invalid">
-                  Sumbit
+                  Send
               </button>
           </form>
         </div>
       </section>
+
+      <section class="section">
+      </section>    
 </section>
