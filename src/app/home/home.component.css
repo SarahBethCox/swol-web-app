@@ -3,3 +3,59 @@
   background-size: cover;
   background-position: center center;
 }
+
+.container{
+  height: 220px;
+}
+
+span {
+  animation: blurMe 1.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+.cursor {
+  position: fixed;
+  background-color: #fff;
+  padding: 0.3rem;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  opacity: 0;
+  transition: transform 250ms ease, left 60ms linear, top 60ms linear;
+  animation: revealCursor 1s ease 5s forwards;
+}
+
+span:hover ~ .cursor {
+  transform: scale(3);
+}
+
+@keyframes blurMe {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes splash {
+  0% {
+    height: 0%;
+  }
+  50% {
+    height: 100%;
+  }
+  100% {
+    top: 0;
+
+    height: 0%;
+  }
+}
+
+@keyframes revealCursor {
+  100% {
+    opacity: 1;
+  }
+}

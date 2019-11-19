@@ -3,7 +3,7 @@
     <div class="hero-body">
         <div class="container">
             <h1 class="title has-text-white">
-                Contact Us!
+                Contact Us
             </h1>
             <h3 class="subtitle has-text-white">
                 Leave us a message!
@@ -13,7 +13,7 @@
     <section class="section is-medium">
         <div class="container">
             <!--Contact Form-->
-          <form (ngSubmit)="processForm()" #contactForm="ngForm">
+          <form (ngSubmit)="processForm()" #contactForm="ngForm" autocomplete="off">
               <!--Name-->
               <div class="field">
                 <label class="label has-text-white is-size-5">Name</label>
@@ -44,7 +44,7 @@
                       email>
                   <!--Error if no email is provided-->
                   <div class="help is-error is-danger is-size-6" *ngIf="emailInput.invalid && emailInput.touched">
-                      Your email is required.
+                      A valid email is required.
                   </div>
               </div>
               <!--Message-->
@@ -56,11 +56,12 @@
                       placeholder="Your Message Here" 
                       [(ngModel)]="message"
                       #messageInput="ngModel"
+                      maxlength="150"
                       required
                   ></textarea>
                   <!--Error if no name is provided-->
                   <div class="help is-error is-danger is-size-6" *ngIf="messageInput.invalid && messageInput.touched">
-                      A message is required.
+                      A message is required and has a maximum of 150 characters.
                   </div>
               </div>
               <!--Submit Button-->
@@ -68,10 +69,16 @@
                   type="submit" 
                   class="button is-light is-large"
                   [disabled]="contactForm.invalid">
-                  Sumbit
+                  Send
               </button>
           </form>
         </div>
       </section>
+<<<<<<< HEAD
 >>>>>>> 3cdac62fb84cb34358ce51d52b3b53cf36be17f9
+=======
+
+      <section class="section">
+      </section>    
+>>>>>>> upstream/master
 </section>

@@ -3,24 +3,42 @@ import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../shared/order.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { type } from 'os';
+import { BrowserStack } from 'protractor/built/driverProviders';
+import { CommonModule, CurrencyPipe} from '@angular/common';
+
+// imxport undefined = require('firebase/empty-import');
 
 
 @Component({
   selector: 'app-place-order',
   templateUrl: './place-order.component.html',
-  styleUrls: ['./place-order.component.css']
+  styleUrls: ['./place-order.component.css'],
+  
 })
 export class PlaceOrderComponent implements OnInit {
+  orderDetails:any;
   name: string;
   shipFrom: string;
   shipTo: string;
   tier: string;
+  tierSelected:string;
+  tierOnePrice = 10;
+  tierTwoPrice = 20;
+  tierThreePrice = 25;
+  tierFourPrice = 100;
+  tax = .064;
+  distance:number;
+  tierOptionSelected:string;
+
 
   constructor(private service:OrderService,
     private route:ActivatedRoute,
-    private router:Router) { }
+    private router:Router,
+    private currencyPipe : CurrencyPipe) { }
 
   ngOnInit() {
+   
     this.service.formData ={
       firstName: '',
       shippingFrom: '',
@@ -28,10 +46,49 @@ export class PlaceOrderComponent implements OnInit {
       tier: null
     };
   }
+   getTierCost(tierSelected:number, distance:number){
+     var tierPrice;
 
+    switch(tierSelected){
+      case 1: 
+      tierPrice = (500+(distance*this.tierOnePrice)).toString();
+      break;
+      case 2: 
+      tierPrice =(1500+(distance*this.tierTwoPrice)).toString();
+      break;
+      case 3: 
+      tierPrice = (5000+(distance*this.tierThreePrice)).toString();
+      break;
+      case 4: 
+      tierPrice = (9500+(distance*this.tierFourPrice)).toString();
+      break;
+
+      default: 
+      tierPrice = "error";
+    }
+    
+     return tierPrice;
+  }
+  
   processForm(orderForm: NgForm) {
-    var service = new google.maps.DistanceMatrixService;
+    if(this.tierOptionSelected==undefined){
+      alert("Please select a tier");
+    }
+    else{
+    var vm = this;
+    var distance;
+    var orderDetails = Object.assign({}, orderForm.value);
+    orderDetails.tierOption = this.tierSelected;
+    
+
    
+    var service = new google.maps.DistanceMatrixService;
+    var price;
+    var str;
+    var temp;
+    var temp2;
+
+
     service.getDistanceMatrix({
       origins: [orderForm.value.from],
       destinations: [orderForm.value.to],
@@ -40,22 +97,55 @@ export class PlaceOrderComponent implements OnInit {
       unitSystem: google.maps.UnitSystem.IMPERIAL,
       avoidHighways: false,
       avoidTolls: false
-    },function(res, status){
+    },callback);
+    
+    function callback(res, status){
       if (status !== google.maps.DistanceMatrixStatus.OK) {
         alert('Error was: ' + status);
       } else {
-        //console.log(res.rows[0].elements[0].distance.text);
-        document.getElementById('distance').setAttribute('value', res.rows[0].elements[0].distance.text);
+       
+        distance =  res.rows[0].elements[0].distance.text;
+         document.getElementById('distance').setAttribute('value', res.rows[0].elements[0].distance.text);
         
+         distance = distance.substring(0, distance.length-2);
+         str = distance.indexOf(",");
+         temp = distance.substring(0,str);
+         temp2 = distance.substring(str+1,distance.length);
+         distance = temp + temp2;
+         
+      //  vm.distance = Number(document.getElementById('distance').getAttribute('value'));
+      // vm.currencyPipe.transform(tierPrice, '$');
+     
+      var tierPrice = vm.currencyPipe.transform(vm.getTierCost(Number(orderDetails.tierOption),Number(distance)),'$');
+      var tax =vm.currencyPipe.transform((Number(vm.getTierCost(Number(orderDetails.tierOption),Number(distance))*vm.tax).toString()), '$');
+      var total = vm.currencyPipe.transform(((Number(vm.getTierCost(Number(orderDetails.tierOption),Number(distance))) + Number(vm.getTierCost(Number(orderDetails.tierOption),Number(distance))*vm.tax)).toString()),'$');
+      
+        document.getElementById('tierPrice').setAttribute('value',tierPrice); 
+         document.getElementById('tax').setAttribute('value',tax); 
+         document.getElementById('total').setAttribute('value',total); 
+        
+
+        }
       }
-    });
-    
-
-    this.service.shareOrderData(orderForm.value);
+     
+   
+    this.service.shareOrderData(orderDetails);
+   
+   
     this.router.navigate(['/order-confirm']);
-
+    }
     // const allInfo = `My name is ${this.name}. I'm shipping from ${this.shipFrom}. I'm shipping to ${this.shipTo}. My tier is ${this.tier}.`;
     // alert(allInfo);
+  }
+
+  scrollToElement($element, event): void {
+    var target = event.currentTarget;
+    
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
+    this.tierSelected = value;
+    this.tierOptionSelected= value;
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
 
   selectChangeHandlerFrom (event: any) {

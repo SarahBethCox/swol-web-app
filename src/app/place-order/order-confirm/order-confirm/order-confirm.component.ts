@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { OrderService } from 'src/app/shared/order.service';
 import { AngularFirestore } from '@angular/fire/firestore';
-// import undefined = require('firebase/empty-import');
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -16,10 +16,17 @@ export class OrderConfirmComponent implements OnInit {
   from:string;
   to:string
   tier:number;
+  distance:number;
   orderNumber:string;
   randNum:number;
   showOrderNumber:string;
-  constructor(private service:OrderService,private firestore:AngularFirestore) {
+  tierOnePrice = 10;
+  tierTwoPrice = 20;
+  tierThreePrice = 30;
+  tierFourPrice = 40;
+
+  constructor(private service:OrderService,private firestore:AngularFirestore,private route:ActivatedRoute,
+    private router:Router) {
      
   }
 
@@ -28,7 +35,8 @@ export class OrderConfirmComponent implements OnInit {
       (orderData)=>{
         this.orderDetails = Object.assign({}, orderData);
       });
-
+      // console.log("order-Confirm");
+      // console.log(this.orderDetails.distance);
       this.name = this.orderDetails.name;
       this.from = this.orderDetails.from;
       this.to = this.orderDetails.to;
@@ -50,12 +58,26 @@ export class OrderConfirmComponent implements OnInit {
    
     this.orderDetails.orderNumber = this.createOrderNumber();
     this.orderDetails.orderNumber = this.createOrderNumber();
+    this.orderDetails.distance =  (<HTMLInputElement>document.getElementById('distance')).value;
+    this.orderDetails.tierPrice =  (<HTMLInputElement>document.getElementById('tierPrice')).value;
+    this.orderDetails.tax =  (<HTMLInputElement>document.getElementById('tax')).value;
+    this.orderDetails.total = (<HTMLInputElement>document.getElementById('total')).value;
+    console.log(this.orderDetails);
+
     // if(this.firestore.collection('orders').add(this.orderDetails)){
     //   alert(this.orderDetails.name + " your order was stored");
     // }
     this.firestore.collection('orders').doc(this.orderDetails.orderNumber).set(this.orderDetails);
 
     alert("Your order number is " + this.orderDetails.orderNumber);
+  }
+  cancelOrder(){
+ 
+    if (confirm("Are you sure you want to cancel your order? ")) {
+      this.router.navigate(['/place-order']);
+  } else {
+     
+  }
   }
   
   

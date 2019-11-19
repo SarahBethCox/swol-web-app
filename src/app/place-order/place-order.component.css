@@ -5,8 +5,22 @@
     padding-bottom: 0px;
 }
 
-.hero {
+.hero{
     background-image: url('/assets/img/plane-background.jpg') !important;
     background-size: cover;
     background-repeat: no-repeat;
 }   
+
+.is-error{
+    display: inline-block;
+}
+.notification:hover {
+  border: 1px solid black;
+  transform: scale(1.02);
+  cursor: pointer;
+  
+}
+.control{
+    visibility: hidden;
+}
+

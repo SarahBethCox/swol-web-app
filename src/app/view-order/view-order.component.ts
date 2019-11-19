@@ -11,7 +11,7 @@ import { OrderService } from '../shared/order.service';
 })
 export class ViewOrderComponent implements OnInit {
   orderDetails:any;
- 
+  allorderDetails:any;
   constructor(private firestore:AngularFirestore, private service:OrderService) { }
 
   ngOnInit() {
@@ -23,6 +23,7 @@ export class ViewOrderComponent implements OnInit {
     var to;
   
     var docRef = this.firestore.collection('orders').doc(formData.value.orderNumberInput);
+
     docRef.get().toPromise().then((doc)=>{
       if(doc.exists){
         this.orderDetails = {...doc.data()};
@@ -39,5 +40,13 @@ export class ViewOrderComponent implements OnInit {
     }).catch(function(error){
       console.log("errrrrr",error);
     });
+
+
+  //   this.firestore.collection("orders").get().toPromise().then(function(querySnapshot) {
+  //     querySnapshot.forEach(function(doc) {
+  //         // doc.data() is never undefined for query doc snapshots
+  //         console.log(doc.id, " => ", doc.data());
+  //     });
+  // });
   }
 }
