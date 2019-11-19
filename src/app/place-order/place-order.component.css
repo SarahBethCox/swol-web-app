@@ -13,6 +13,13 @@
 .is-error{
     display: inline-block;
 }
-#tierBannerOption:hover {
-    border: 2px solid #22BB33  ;
+.notification:hover {
+  border: 1px solid black;
+  transform: scale(1.02);
+  cursor: pointer;
+  
 }
+.control{
+    visibility: hidden;
+}
+

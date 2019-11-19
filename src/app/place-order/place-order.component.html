@@ -15,13 +15,14 @@
   <!--Description of tiers-->
   <section class="section">
     <div class="container">
-      <div class="columns">
+      <div class="columns " >
 
-        <div class="column">  
-          <a href="#bottom">
-          <div id="tierBannerOption" class=" notification has-text-dark">
+        <div class="column" >  
+          <div id='1' class="  notification has-text-dark" (click)="scrollToElement(toForm, $event)">
               <div class="column tierImgs">
               <figure class=" image is-96x96 ">
+                 
+                
                   <img src="../../assets/img/tierOne.png">
               </figure>
             </div>
@@ -34,11 +35,11 @@
               Limits far yet turned highly repair parish talked six. Draw fond rank form nor the day eat.
             </p>
           </div>
-        </a> 
+       
         </div>
 
-        <div class="column">
-          <div class="notification has-text-dark">
+        <div id="2"  class="column " (click)="scrollToElement(toForm, $event)">
+          <div class=" notification has-text-dark">
               <div class="column tierImgs">
                   <figure class=" image is-96x96 ">
                       <img src="../../assets/img/TierTwo.png">
@@ -54,8 +55,10 @@
             </p>
           </div>
         </div>
-        <div class="column">
-          <div class="notification has-text-dark">
+
+
+        <div id="3"  class="column " (click)="scrollToElement(toForm, $event)">
+          <div class=" notification has-text-dark">
               <div class="column tierThree tierImgs">
                   <figure class=" image is-96x96">
                       <img src="../../assets/img/TierThree.png">
@@ -71,8 +74,10 @@
             </p>
           </div>
         </div>
-        <div class="column">
-          <div class="notification has-text-dark">
+
+
+        <div class="column " >
+          <div id="4"  class=" notification has-text-dark" (click)="scrollToElement(toForm, $event)">
               <div class="column tierImgs">
                   <figure class=" image is-96x96 ">
                       <img src="../../assets/img/TierFour.png">
@@ -180,7 +185,7 @@
 
 
             <label class="radio has-text-white is-size-5" >
-              <input type="radio" #tierInput="ngModel"name="tierOption" value="1" [(ngModel)]=service.formData.tier required>
+              <input type="radio" #tierInput="ngModel"name="tierOption" value="1" [(ngModel)]=service.formData.tier>
               Tier One
             </label>
 
@@ -205,6 +210,8 @@
 
 
         <!--Submit Button-->
+
+
         <div class="field">
           <label> </label>
         </div> 
@@ -213,7 +220,7 @@
 
       </form>
    
-      <div id="bottom"></div>
+      <div #toForm></div>
     </div>
   </section>
 </section>
