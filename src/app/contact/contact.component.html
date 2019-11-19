@@ -56,11 +56,12 @@
                       placeholder="Your Message Here" 
                       [(ngModel)]="message"
                       #messageInput="ngModel"
+                      maxlength="150"
                       required
                   ></textarea>
                   <!--Error if no name is provided-->
                   <div class="help is-error is-danger is-size-6" *ngIf="messageInput.invalid && messageInput.touched">
-                      A message is required.
+                      A message is required and has a maximum of 150 characters.
                   </div>
               </div>
               <!--Submit Button-->
