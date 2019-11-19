@@ -17,6 +17,9 @@ export class ContactComponent implements OnInit {
 
   processForm() {
     alert("Your Message has been sent!");
+    this.name = "";
+    this.email = "";
+    this.message = "";
   }
 
 }
