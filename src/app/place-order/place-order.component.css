@@ -24,3 +24,9 @@
     visibility: hidden;
 }
 
+.column{
+    display: flex;
+}
+.is-two-fifths{
+    display: inline-block;
+}
