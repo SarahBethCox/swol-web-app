@@ -42,11 +42,6 @@ export class ViewOrderComponent implements OnInit {
     });
 
 
-  //   this.firestore.collection("orders").get().toPromise().then(function(querySnapshot) {
-  //     querySnapshot.forEach(function(doc) {
-  //         // doc.data() is never undefined for query doc snapshots
-  //         console.log(doc.id, " => ", doc.data());
-  //     });
-  // });
+  
   }
 }

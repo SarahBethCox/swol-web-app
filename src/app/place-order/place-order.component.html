@@ -36,6 +36,7 @@
        
         </div>
 
+       
         <div id="2"  class="column " (click)="scrollToElement(toForm, $event)">
           <div class=" notification has-text-dark">
               <div class="column tierImgs">
@@ -51,7 +52,7 @@
             </p>
           </div>
         </div>
-
+      
 
         <div id="3"  class="column " (click)="scrollToElement(toForm, $event)">
           <div class=" notification has-text-dark">
@@ -71,7 +72,7 @@
 
 
         <div class="column " >
-          <div id="4"  class=" notification has-text-dark" (click)="scrollToElement(toForm, $event)">
+          <div id="4"  class="notification has-text-dark" (click)="scrollToElement(toForm, $event)">
               <div class="column tierImgs">
                   <figure class=" image is-96x96 ">
                       <img src="../../assets/img/TierFour.png">
@@ -87,6 +88,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -100,6 +102,7 @@
         Place an order using the form below.
       </h3>
     </div>
+    <div #toForm></div>
   </section>
 
   <!--Form-->
@@ -107,11 +110,14 @@
     <div class="container">
 
 
-      <div class="help is-error is-danger is-size-6" *ngIf="tierInput.invalid && tierInput.touched || nameInput.invalid && nameInput.touched || fromInput.invalid && fromInput.touched ||toInput.invalid && toInput.touched">
-          Please comple the required inputs
-      </div>
+     
 
-
+      <div class="columns is-centered">
+         
+          <div class="column is-two-fifths">
+              <div class="help is-error is-danger is-size-6" *ngIf="tierInput.invalid && tierInput.touched || nameInput.invalid && nameInput.touched || fromInput.invalid && fromInput.touched ||toInput.invalid && toInput.touched">
+                  Please comple the required inputs
+              </div>
       <form (ngSubmit)="processForm(orderForm)" #orderForm="ngForm" autocomplete="off">
 
         <!--Name fields-->
@@ -205,15 +211,15 @@
         <!--Submit Button-->
 
 
-        <div class="field">
-          <label> </label>
+        <div class="field has-text-centered">
+            <button type="submit" class="button  is-light is-large" [disabled]="orderForm.invalid" >Submit</button>
         </div> 
 
-        <button type="submit" class="button is-light is-large" [disabled]="orderForm.invalid" >Submit</button>
 
       </form>
-   
-      <div #toForm></div>
+   </div>
+      </div>
+     
     </div>
   </section>
 

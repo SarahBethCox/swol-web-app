@@ -3,3 +3,12 @@
     background-size: cover;
     background-position: center center;
   }
+  .selectContainer{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin-bottom: 20px;
+  }
+  .results{
+    visibility: hidden;
+  }

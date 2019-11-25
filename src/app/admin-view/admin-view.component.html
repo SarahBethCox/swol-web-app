@@ -3,141 +3,61 @@
 <section class="hero is-info is-bold">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">
-          Enter values in the fields below:
+        <h1 class="title has-text-centered">
+          Orders
         </h1>
       </div>
     </div>
 
     <section class="section is-medium">
       <div class="container">
+        <div class="selectContainer">
+          <div class="select" (change)="onChange($event.target.value, 'from')">
+              <select>
+                <option>Select dropdown</option>
+                <option>Arkansas</option>
+              </select>
+            </div>
+            <div class="select" (change)="onChange($event.target.value, 'to')">
+                <select>
+                  <option>Select dropdown</option>
+                  <option>New York</option>
+                </select>
+              </div>
+            <div class="select" (change)="onChange($event.target.value, 'tier')">
+                <select>
+                  <option>Select dropdown</option>
+                  <option>1</option>
+                </select>
+              </div>
+
+            </div>
         <div class="tile is-ancestor">
           <div class="tile is-12 is-vertical">
-            <div class="tile">
-                <!--Search Tile-->
-                <div class="tile is-vertical is-parent">
-                    <div class="tile is-child box">
-                      <p class="title has-text-dark">
-                        Search For:
-                      </p>
-                      <div class="content">
-                          <!--First and Last Name-->
-                          <form #trackForm="ngForm" (ngSubmit)="trackOrder(trackForm)">
-                          <div class="field is-horizontal">
-                              <div class="field-label is-normal">
-                                <label class="label">Name</label>
-                              </div>
-                              <div class="field-body">
-                                <div class="field">
-                                  <p class="control">
-                                    <input 
-                                        type="text" 
-                                        class="input" 
-                                        name="nameInput" 
-                                        ngModel
-                                    >
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            <!--Shipping from-->
-                            <div class="field is-horizontal">
-                              <div class="field-label is-normal">
-                                <label class="label">Ship From:</label>
-                              </div>
-                              <div class="field-body">
-                                <div class="field">
-                                  <p class="control">
-                                    <input 
-                                        type="text" 
-                                        class="input" 
-                                        name="shipFromInput" 
-                                        ngModel
-                                    >
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                            <!--Shipping To-->
-                            <div class="field is-horizontal">
-                                <div class="field-label is-normal">
-                                  <label class="label">Ship To:</label>
-                                </div>
-                                <div class="field-body">
-                                  <div class="field">
-                                    <p class="control">
-                                        <input 
-                                            type="text" 
-                                            class="input" 
-                                            name="shipToInput" 
-                                            ngModel
-                                        >
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                              <!--Tier Package-->
-                              <div class="field is-horizontal">
-                                  <div class="field-label is-normal">
-                                    <label class="label">Tier:</label>
-                                  </div>
-                                  <div class="field-body">
-                                    <div class="field">
-                                      <p class="control">
-                                        <input 
-                                            type="text" 
-                                            class="input" 
-                                            name="tierInput" 
-                                            ngModel
-                                        >
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <!--Order ID-->
-                                <div class="field is-horizontal">
-                                    <div class="field-label is-normal">
-                                        <label class="label">Order ID:</label>
-                                    </div>
-                                    <div class="field-body">
-                                        <div class="field">
-                                            <p class="control">
-                                                <input 
-                                                    type="text" 
-                                                    class="input" 
-                                                    name="orderNumberInput" 
-                                                    ngModel
-                                                >
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>                               
-                                <div class="buttons is-right">
-                                    <button class="button is-light is-medium" type="submit">Submit</button>
-                                </div>
-                              </form>
-                      </div>
-                    </div>
-                </div>
+            <div class="tile"> 
+
                 <!--Results Tile-->
-                <div class="tile is-vertical is-parent">
+              
+                <div class="tile is-vertical is-parent results">
+   
                     <div class="tile is-child box">
                       <p class="title has-text-dark">
                         Results:
                       </p>
                       <div class="content">
                         <table onload="ini()" class="table  is-narrow is-hoverable is-three-fifths">
-                            <tr>
+                            <tr >
                                 <th>Name</th>
                                 <th>Shipping From</th>
                                 <th>Shipping To</th>
                                 <th>Tier</th>
                             </tr>
-                            <tr>
-                                <td id="name"></td>
-                                <td id="from"></td>
-                                <td id="to"></td>
-                                <td id="tier"></td>
+                            <tr *ngFor="let x of orderDetails">
+                                <td>{{x.name}}
+                                  </td>
+                                  <td>{{x.from}}</td>
+                                  <td>{{x.to}}</td>
+                                  <td>{{x.tierOption}}</td>
                             </tr>       
                         </table>
                       </div>
@@ -152,4 +72,6 @@
         
      </div>
     </section>
+
+
 </section>
