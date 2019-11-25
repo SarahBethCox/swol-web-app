@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "swolcrud",
+    "swol-email": "swolemail-dc8f1",
+    "swolemail": "swolcrud"
+  }
+}

@@ -1,19 +1,22 @@
 <!--This is the contact page component-->
-<section class="hero is-light is-bold">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title has-text-white">
+
+<section class="hero  main">
+    ]
+        <div class="field banner">
+            <h1 class="title has-text-white has-text-centered">
                 Contact Us
             </h1>
-            <h3 class="subtitle has-text-white">
+            <h3 class="subtitle has-text-white has-text-centered">
                 Leave us a message!
             </h3>
         </div>
-    </div>
+    
+    <div class="columns is-centered">
+    <div class="column is-half ">
     <section class="section is-medium">
         <div class="container">
             <!--Contact Form-->
-          <form (ngSubmit)="processForm()" #contactForm="ngForm" autocomplete="off">
+          <form (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm" autocomplete="off">
               <!--Name-->
               <div class="field">
                 <label class="label has-text-white is-size-5">Name</label>
@@ -65,16 +68,19 @@
                   </div>
               </div>
               <!--Submit Button-->
+              <div class="field has-text-centered">
               <button 
                   type="submit" 
-                  class="button is-light is-large"
-                  [disabled]="contactForm.invalid">
+                  class="button is-light is-large ">
+                  <!-- [disabled]="contactForm.invalid" > -->
                   Send
               </button>
+            </div>
           </form>
         </div>
       </section>
-
+    </div>
+    </div>
       <section class="section">
       </section>    
 </section>

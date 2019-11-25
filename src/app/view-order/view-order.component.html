@@ -1,6 +1,9 @@
 <!--view order component-->
-<section class="hero is-dark is-fullheight is-bold">
-    <div class="hero-body">
+<section class="hero is-fullheight ">
+
+      <div class="content">
+      <div class="columns is-centered">
+          <div class="column">
       <div class="container">
         <h1 class="title has-text-centered">
           View Your Order's Status:
@@ -19,22 +22,33 @@
 
           
     </div>
-    
-      </div>
-      <table onload="ini()" class="table  is-narrow is-hoverable is-three-fifths">
-          <tr>
-            <th>Name</th>
-            <th>Shipping From</th>
-            <th>Shipping To</th>
-            <th>Tier</th>
-          </tr>
-          <tr>
-            <td id="name"></td>
-            <td id="from"></td>
-            <td id="to"></td>
-            <td id="tier"></td>
-          </tr>
-            
-        </table>
     </div>
+
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-two-fifths">
+        <table onload="ini()" class="table results is-narrow is-hoverable ">
+            <tr>
+              <th>Name</th>
+              <th>Shipping From</th>
+              <th>Shipping To</th>
+              <th>Tier</th>
+            </tr>
+            <tr>
+              <td id="name"></td>
+              <td id="from"></td>
+              <td id="to"></td>
+              <td id="tier"></td>
+            </tr>
+              
+          </table>
+      </div>
+    </div>
+      </div>
+
+
+
+   
   </section>
+   

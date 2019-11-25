@@ -23,6 +23,7 @@ import { environment } from 'src/environments/environment';
 import { OrderService } from './shared/order.service';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { CurrencyPipe } from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';//
 
 
 
@@ -43,6 +44,7 @@ import { CurrencyPipe } from '@angular/common';
     AngularFireModule.initializeApp(environment.firebaeConfig), //
     AngularFirestoreModule, //
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     CoreModule
   ],
