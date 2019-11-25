@@ -24,20 +24,20 @@ exports.email = functions.https.onRequest((req, res)=>{
          
 
 
-// sgMail.setApiKey("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");
-// const msg = {
-//   to: 'contact.swoladm@gmail.com',
-//   from: obj.email,
-//   subject: 'SWOL Contact',
-//   text: obj.message,
-// //   html: '<strong></strong>',
-// };
-// sgMail.send(msg).then(()=>{
-//     console.log("sent");
-//     res.send("Your email was sent");
-// }).catch((error)=>{
-//     console.log('error', error);
-// });
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const msg = {
+  to: 'contact.swoladm@gmail.com',
+  from: obj.email,
+  subject: 'SWOL Contact',
+  text: obj.message,
+//   html: '<strong></strong>',
+};
+sgMail.send(msg).then(()=>{
+    console.log("sent");
+    res.send("Your email was sent");
+}).catch((error)=>{
+    console.log('error', error);
+});
 
 })
 
