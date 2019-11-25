@@ -3,3 +3,14 @@
     background-size: cover;
     background-position: center center;
   }
+  button{
+}
+.section.section.is-medium{
+  padding: 0;
+}
+.main{
+  height: 100vh;
+}
+div.hero-body{
+  padding: 0;
+}

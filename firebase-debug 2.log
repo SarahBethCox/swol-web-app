@@ -1,0 +1,13 @@
+[debug] [2019-11-23T23:36:50.361Z] ----------------------------------------------------------------------
+[debug] [2019-11-23T23:36:50.363Z] Command:       /usr/local/bin/node /usr/local/bin/firebase use --add
+[debug] [2019-11-23T23:36:50.363Z] CLI Version:   7.8.1
+[debug] [2019-11-23T23:36:50.363Z] Platform:      darwin
+[debug] [2019-11-23T23:36:50.363Z] Node Version:  v10.16.0
+[debug] [2019-11-23T23:36:50.364Z] Time:          Sat Nov 23 2019 17:36:50 GMT-0600 (Central Standard Time)
+[debug] [2019-11-23T23:36:50.364Z] ----------------------------------------------------------------------
+[debug] [2019-11-23T23:36:50.364Z] 
+[debug] [2019-11-23T23:36:50.374Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-23T23:36:50.375Z] > authorizing via signed-in user
+[debug] [2019-11-23T23:36:50.378Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=1000  
+ 
+[debug] [2019-11-23T23:36:50.810Z] <<< HTTP RESPONSE 200

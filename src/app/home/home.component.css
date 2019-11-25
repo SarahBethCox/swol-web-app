@@ -7,7 +7,14 @@
 .container{
   height: 220px;
 }
-
+div.hero-body{
+  height: 100vh;
+  padding: 0!important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
 span {
   animation: blurMe 1.4s ease-in-out forwards;
   opacity: 0;

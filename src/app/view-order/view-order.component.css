@@ -1,6 +1,19 @@
-.hero {
-    background-image: url('/assets/img/plane-background.jpg') !important;
+section {
+    background: url('/assets/img/plane-background.jpg') !important;
     background-size: cover;
-    background-position: center center;
+    background-position: center ;
+    background-repeat: no-repeat!important;
     height: 100vh;
+    
+  }
+  table{
+    visibility: hidden;
+    border-radius: 4px;
+  }
+ .content{
+    /* display: inline-block; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
   }

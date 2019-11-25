@@ -13,7 +13,7 @@ import { BindingFlags } from '@angular/compiler/src/core';
 })
 export class AdminViewComponent implements OnInit {
   orderDetails:any[] = [];
-  orderDetails2:any[] =[];
+  orderDetailsTemp:any[] =[];
   distance:string;
   flag:any = {
     from:false,
@@ -43,47 +43,52 @@ export class AdminViewComponent implements OnInit {
         vm.orderDetails = [];
     querySnapshot.forEach(function(doc) {
    
-    if(searchtype=='from'){
+
+    if(searchtype=='from' ){
        vm.flag.from =true;
        vm.flag.fromvalue = selection;
-       if(doc.data().from == selection){
-        
-        vm.orderDetails.push(doc.data());
-       }
+      //  if(doc.data().from == selection){
+      //   vm.orderDetails.push(doc.data());
+       
+      //  }
       }
-      if(searchtype=='to'){
+      if(searchtype=='to'  ){
         vm.flag.to =true;
         vm.flag.tovalue = selection;
-        if(doc.data().to == selection){
+        // if(doc.data().to == selection){
          
-         vm.orderDetails.push(doc.data());
-        }
+        //  vm.orderDetails.push(doc.data());
+        // }
        }
     if(searchtype=='tier'){
       vm.flag.tier =true;
       vm.flag.tiervalue = selection;
-       if(doc.data().tierOption == selection){
+      //  if(doc.data().tierOption == selection){
         
-        vm.orderDetails.push(doc.data());
-       }
+      //   vm.orderDetails.push(doc.data());
+      //  }
       }
 
-      if(vm.flag.from ==true && vm.flag.to ==true && vm.flag.tier == true){
+
+      
+      if(vm.flag.from ==true && vm.flag.to ==true && vm.flag.tier == true ){
         if(doc.data().from == vm.flag.fromvalue&& doc.data().to == vm.flag.tovalue &&doc.data().tierOption == vm.flag.tiervalue) 
         {
           vm.orderDetails.push(doc.data() );
+
         }  
       }
       if(vm.flag.from ==true && vm.flag.to ==true && vm.flag.tier == false){
         if(doc.data().from == vm.flag.fromvalue&& doc.data().to == vm.flag.tovalue) 
         {
-          vm.orderDetails.push(doc.data() );
+          vm.orderDetails.push(doc.data());
+      
         }  
       }
       if(vm.flag.from ==false && vm.flag.to ==true && vm.flag.tier == true){
-        if(doc.data().to == vm.flag.tovalue &&doc.data().tierOption == vm.flag.tiervalue) 
+        if(doc.data().to == vm.flag.tovalue &&doc.data().tierOption == vm.flag.tiervalue ) 
         {
-          vm.orderDetails.push(doc.data() );
+          vm.orderDetails.push(doc.data());
         }  
       }
       if(vm.flag.from ==true && vm.flag.to ==false && vm.flag.tier == true){
@@ -93,9 +98,33 @@ export class AdminViewComponent implements OnInit {
         }  
       }
 
+      if(vm.flag.from ==true && vm.flag.to ==false && vm.flag.tier == false){
+        if(doc.data().from == vm.flag.fromvalue) 
+        {
+          vm.orderDetails.push(doc.data());
+        }  
+      }
+      if(vm.flag.from ==false && vm.flag.to ==false && vm.flag.tier == true){
+       
+        if(doc.data().tierOption == vm.flag.tiervalue) 
+        {
+          vm.orderDetails.push(doc.data());
+        }  
+      }
+      if(vm.flag.from ==false && vm.flag.to ==true && vm.flag.tier == false){
+       
+        if(doc.data().to == vm.flag.tovalue) 
+        {
+          vm.orderDetails.push(doc.data());
+        }  
+      }
       
    
     });
+    
+  
+    
 });
+
   }
 }

@@ -22,6 +22,10 @@ export class ViewOrderComponent implements OnInit {
     var from;
     var to;
   
+
+    let results = document.getElementsByClassName('results') as HTMLCollectionOf<HTMLElement>;
+    results[0].style.visibility = "visible";
+    
     var docRef = this.firestore.collection('orders').doc(formData.value.orderNumberInput);
 
     docRef.get().toPromise().then((doc)=>{

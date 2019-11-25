@@ -1,13 +1,14 @@
 <!--order confirm component-->
 <!--displays right after and order is placed-->
-<section class="hero is-info is-bold">
+<div class="mainContainer">
+<section class="hero  ">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">
+        <h1 class="title has-text-centered">
           Confirm Order!
         </h1>
-        <h3 class="subtitle">
-          This is the page to confirm your order.
+        <h3 class="subtitle has-text-centered">
+          Confirm your order.
         </h3>
       </div>
     </div>
@@ -185,9 +186,9 @@
           </div>
         </div> 
 
-        <div class="buttons is-right">
-          <button type="submit"class="button is-medium is-light" (click)="submitOrder()" routerLink="/place-order">Order</button>
-          <button type="submit"class="button is-medium is-light" (click)="cancelOrder()" >Cancel</button>
+        <div class="buttons is-centered">
+          <button type="submit"class="button is-medium is-danger" (click)="submitOrder()" routerLink="/place-order">Order</button>
+          <button type="submit"class="button is-medium is-danger" (click)="cancelOrder()" >Cancel</button>
         </div>
 
         <section class="section">
@@ -196,3 +197,4 @@
      </div>
     </section>
 </section>
+</div>

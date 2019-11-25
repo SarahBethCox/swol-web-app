@@ -1,9 +1,9 @@
 .hero {
-    background-image: url('/assets/img/plane-background.jpg') !important;
+    /* background-image: url('/assets/img/airplane.png') !important; */
     background-size: cover;
     background-repeat: no-repeat;
 }   
-.input:hover{
 
-
+.section.is-medium{
+    padding: 0;
 }
