@@ -43,8 +43,7 @@ export class ContactComponent implements OnInit {
   // }
   ).subscribe(
     res => {
-      console.log(res );
-      alert("Your Email was sent");
+      alert(res.toLocaleString);
       data.reset();
 
     },
