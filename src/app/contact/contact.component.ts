@@ -43,7 +43,8 @@ export class ContactComponent implements OnInit {
   // }
   ).subscribe(
     res => {
-      alert(res.toLocaleString);
+      // alert(res.toLocaleString);
+      document.getElementById("openModalButton").click();
       data.reset();
 
     },

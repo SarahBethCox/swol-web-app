@@ -5,6 +5,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
 import { triggerAsyncId } from 'async_hooks';
 import { BindingFlags } from '@angular/compiler/src/core';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthService } from '../shared/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-view',
@@ -24,16 +27,25 @@ export class AdminViewComponent implements OnInit {
     tiervalue:""
   };
   
-  constructor(private firestore:AngularFirestore, private service:OrderService) { }
+  constructor(private firestore:AngularFirestore, private service:OrderService,public authService: AuthService,private route:ActivatedRoute,
+    private router:Router) { }
 
   ngOnInit() {
-
+    
+    document.getElementById("logoutBtn").style.display = "inline-block";
+   this.authService.isSignIn();
   }
+  ngOnDestroy() {
+    document.getElementById("logoutBtn").style.display = "none";
+  }
+
+  
+
   trackOrder(formData:NgForm){
     
   
   }
-
+  
 
   onChange(selection, searchtype){
     let results = document.getElementsByClassName('results') as HTMLCollectionOf<HTMLElement>;
@@ -126,5 +138,7 @@ export class AdminViewComponent implements OnInit {
     
 });
 
-  }
+}
+
+
 }

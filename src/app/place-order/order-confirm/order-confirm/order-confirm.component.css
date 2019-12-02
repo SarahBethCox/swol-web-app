@@ -7,3 +7,9 @@
 .section.is-medium{
     padding: 0;
 }
+.modal.fade {
+    z-index: 10000000 !important;
+  }
+.modal{
+      color: black;
+  }

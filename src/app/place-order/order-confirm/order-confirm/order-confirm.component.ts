@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./order-confirm.component.css']
 })
 export class OrderConfirmComponent implements OnInit {
-
   orderDetails:any;
   name:string;
   from:string;
@@ -41,7 +40,9 @@ export class OrderConfirmComponent implements OnInit {
       this.from = this.orderDetails.from;
       this.to = this.orderDetails.to;
       this.tier = this.orderDetails.tierOption;
-
+      if(this.name == undefined){
+        this.router.navigate(['/place-order']);
+      }
   }
   createOrderNumber(){
     this.orderNumber='';
@@ -55,9 +56,11 @@ export class OrderConfirmComponent implements OnInit {
     return this.orderNumber;
   }
   submitOrder(){
+
    
     this.orderDetails.orderNumber = this.createOrderNumber();
-    this.orderDetails.orderNumber = this.createOrderNumber();
+    this.showOrderNumber = this.orderDetails.orderNumber;
+    // this.orderDetails.orderNumber = this.createOrderNumber();
     this.orderDetails.distance =  (<HTMLInputElement>document.getElementById('distance')).value;
     this.orderDetails.tierPrice =  (<HTMLInputElement>document.getElementById('tierPrice')).value;
     this.orderDetails.tax =  (<HTMLInputElement>document.getElementById('tax')).value;
@@ -67,9 +70,18 @@ export class OrderConfirmComponent implements OnInit {
     // if(this.firestore.collection('orders').add(this.orderDetails)){
     //   alert(this.orderDetails.name + " your order was stored");
     // }
-    this.firestore.collection('orders').doc(this.orderDetails.orderNumber).set(this.orderDetails);
+    
+    this.firestore.collection('orders').doc(this.orderDetails.orderNumber).set(this.orderDetails)
+    .then(function() {
+      document.getElementById("openModalButton").click();
+      // this.router.navigate(['/home']);
+      })
+    .catch(function(error) {
+        alert("Error writing document: "+ error);
+    });
+  
 
-    alert("Your order number is " + this.orderDetails.orderNumber);
+    // alert("Your order number is " + this.orderDetails.orderNumber);
   }
   cancelOrder(){
  
@@ -78,6 +90,9 @@ export class OrderConfirmComponent implements OnInit {
   } else {
      
   }
+  }
+  toHome(){
+    this.router.navigate(['']);
   }
   
   

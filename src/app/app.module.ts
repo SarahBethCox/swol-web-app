@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +26,9 @@ import { CurrencyPipe } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';//
 
 
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -46,9 +48,11 @@ import {HttpClientModule} from '@angular/common/http';//
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    AngularFireAuthModule,
+    ReactiveFormsModule,
     CoreModule
   ],
-  providers: [CurrencyPipe],
+  providers: [CurrencyPipe,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

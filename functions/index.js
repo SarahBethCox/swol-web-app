@@ -19,7 +19,7 @@ exports.email = functions.https.onRequest((req, res)=>{
         //         message: "inside funtion"
         //     })
       var obj = JSON.parse(req.body);
-      sgMail.setApiKey('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');
+      sgMail.setApiKey('');
       
       const msg = {
                     to: 'contact.swoladm@gmail.com',
