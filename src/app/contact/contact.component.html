@@ -71,8 +71,7 @@
               <div class="field has-text-centered">
               <button 
                   type="submit" 
-                  class="button is-light is-large ">
-                  <!-- [disabled]="contactForm.invalid" > -->
+                  class="button is-danger  is-large " [disabled]="contactForm.invalid">
                   Send
               </button>
             </div>
@@ -100,8 +99,8 @@
         <div class="modal-body">
           <p>Your email was sent!</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="toHome()">Close</button>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-secondary " data-dismiss="modal" (click)="toHome()">Close</button>
         </div>
       </div>
     </div>

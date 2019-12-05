@@ -1,7 +1,8 @@
 .hero {
-    background-image: url('/assets/img/plane-background.jpg') !important;
+    background-image: url('/assets/img/plane-background.png') !important;
     background-size: cover;
     background-position: center center;
+    min-height: 100vh;
   }
   .selectContainer{
    display: flex;
@@ -10,5 +11,11 @@
    margin-bottom: 20px;
   }
   .results{
-    visibility: hidden;
+    /* visibility: hidden; */
   }
+  button{
+    margin-left: 15px;
+    border-radius: 5px!important;
+  }
+  
+  

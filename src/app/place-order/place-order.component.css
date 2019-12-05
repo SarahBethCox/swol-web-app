@@ -4,7 +4,10 @@
     justify-content: center;
     padding-bottom: 0px;
 }
-
+label{
+    /* color: darkgrey!important;
+    font-size: 11px!important; */
+}
 .hero{
     /* background-image: url('/assets/img/plane-background.jpg') !important;
     background-size: cover;

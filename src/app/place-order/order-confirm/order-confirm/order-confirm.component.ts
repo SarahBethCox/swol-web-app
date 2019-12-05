@@ -41,7 +41,7 @@ export class OrderConfirmComponent implements OnInit {
       this.to = this.orderDetails.to;
       this.tier = this.orderDetails.tierOption;
       if(this.name == undefined){
-        this.router.navigate(['/place-order']);
+       this.router.navigate(['/place-order']);
       }
   }
   createOrderNumber(){
@@ -60,6 +60,7 @@ export class OrderConfirmComponent implements OnInit {
    
     this.orderDetails.orderNumber = this.createOrderNumber();
     this.showOrderNumber = this.orderDetails.orderNumber;
+    this.orderDetails.status = "processsing";
     // this.orderDetails.orderNumber = this.createOrderNumber();
     this.orderDetails.distance =  (<HTMLInputElement>document.getElementById('distance')).value;
     this.orderDetails.tierPrice =  (<HTMLInputElement>document.getElementById('tierPrice')).value;

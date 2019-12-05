@@ -6,18 +6,29 @@
       <div class="columns is-centered">
           <div class="column">
       <div class="container">
-        <h1 class="title has-text-centered">
-          View Your Order's Status:
-        </h1>
+          <div class="hero-body">
+              <div class="container">
+                <h1 class="title has-text-centered">
+                    View Your Order's Status:                
+                  </h1>
+                
+              </div>
+            </div>
+       
         <div class="columns is-centered has-text-centered">
-          <div class="sis-two-fifths">
+          <div class="is-two-fifths">
 
              <form #trackForm="ngForm" (ngSubmit)="trackOrder(trackForm)">
             <label for="orderNumber">Order Number:</label>
            
-            <input type="text" placeholder="Enter Order #" class="is-small input is-centered" name="orderNumberInput" ngModel><br>
-            <button class="button is-small is-danger is-rounded" type="submit">Submit</button>
-             </form>
+            <input type="text" placeholder="Enter Order #" class=" input is-centered " name="orderNumberInput" ngModel required><br>
+           <div id="error"></div>
+             <br/>
+             
+            <button class="button  is-danger is-rounded" type="submit" [disabled]="trackForm.invalid">Submit</button>
+
+          
+          </form>
 
           </div>
 
@@ -27,29 +38,58 @@
 
       </div>
     </div>
+
+    
     <div class="columns is-centered">
-      <div class="column is-two-fifths">
-        <table onload="ini()" class="table results is-narrow is-hoverable ">
+      <div class="column is-two-fifths" >
+        <table  class="table results is-narrow is-hoverable ">
             <tr>
               <th>Name</th>
               <th>Shipping From</th>
               <th>Shipping To</th>
-              <th>Tier</th>
+              <th>Status</th>
             </tr>
             <tr>
               <td id="name"></td>
               <td id="from"></td>
               <td id="to"></td>
-              <td id="tier"></td>
+              <td id="status"></td>
             </tr>
               
           </table>
       </div>
     </div>
+
+
+    
       </div>
 
-
+     
 
    
   </section>
 </div>
+<!-- Button trigger modal -->
+<!-- <button type="button" id="modalButton" [hidden]="true" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+   -->
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <img src="../../assets/img/swollogo.png" width="90.5" height="30" >
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <h5>The order number you provided does not exist.</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

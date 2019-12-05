@@ -1,5 +1,5 @@
 .mainContainer {
-    background: url('/assets/img/plane-background.jpg');
+    background: url('/assets/img/plane-background.png');
     background-size: cover;
     background-position: center ;
     background-repeat: no-repeat!important;
@@ -7,6 +7,7 @@
     
     
   }
+  
   table{
     visibility: hidden;
     border-radius: 4px;
