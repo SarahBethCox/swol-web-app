@@ -1,6 +1,6 @@
 <!--Header componeent-->
 <!--this is the navigation bar-->
-<nav class="navbar is-light"> 
+<nav class="navbar is-light" id="navbar"> 
     <!--logo-->
     <div class="navbar-brand">
       <a class="navbar-item">
@@ -18,13 +18,19 @@
       <a class="navbar-item" routerLink="/view-order">View Order</a>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
+    <div class="navbar-end" >
+      <div class="navbar-item" id="logout">
         <div class="buttons">
           <a class="button is-light" routerLink="/sign-in">
             Admin
           </a>
+          <a  id="logoutBtn" class="button is-light" (click)="logout()">
+              Logout
+            </a>
         </div>
+        
+         
+       
       </div>
     </div>
     

@@ -1,11 +1,13 @@
-section {
-    background: url('/assets/img/plane-background.jpg') !important;
+.mainContainer {
+    background: url('/assets/img/plane-background.png');
     background-size: cover;
     background-position: center ;
     background-repeat: no-repeat!important;
     height: 100vh;
     
+    
   }
+  
   table{
     visibility: hidden;
     border-radius: 4px;

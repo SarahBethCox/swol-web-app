@@ -7,3 +7,19 @@
 .section.is-medium{
     padding: 0;
 }
+.modal.fade {
+    z-index: 10000000 !important;
+  }
+.modal{
+      color: black;
+  }
+.mainContainer{
+    min-height: 100vh;
+   
+}
+img{
+    margin: 0 auto;
+  }
+  button.close{
+    margin-left: 0;
+  }

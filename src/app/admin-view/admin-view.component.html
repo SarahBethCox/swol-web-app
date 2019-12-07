@@ -7,182 +7,218 @@
           Orders
         </h1>
       </div>
-    </div>
-
-    <section class="section is-medium">
-      <div class="container">
-        <div class="selectContainer">
-          <div class="select" (change)="onChange($event.target.value, 'from')">
-              <select>
-                <option>Order by Origin </option>
-                <option value="Alabama">Alabama</option>
-                <option value="Alaska">Alaska</option>
-                <option value="Arizona">Arizona</option>
-                <option value="Arkansas">Arkansas</option>
-                <option value="California">California</option>
-                <option value="Colorado">Colorado</option>
-                <option value="Connecticut">Connecticut</option>
-                <option value="Delaware">Delaware</option>
-                <option value="District of Columbia">District of Columbia</option>
-                <option value="Florida">Florida</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Guam">Guam</option>
-                <option value="Hawaii">Hawaii</option>
-                <option value="Idaho">Idaho</option>
-                <option value="Illinois">Illinois</option>
-                <option value="Indiana">Indiana</option>
-                <option value="Iowa">Iowa</option>
-                <option value="Kansas">Kansas</option>
-                <option value="Kentucky">Kentucky</option>
-                <option value="Louisiana">Louisiana</option>
-                <option value="Maine">Maine</option>
-                <option value="Maryland">Maryland</option>
-                <option value="Massachusetts">Massachusetts</option>
-                <option value="Michigan">Michigan</option>
-                <option value="Minnesota">Minnesota</option>
-                <option value="Mississippi">Mississippi</option>
-                <option value="Missouri">Missouri</option>
-                <option value="Montana">Montana</option>
-                <option value="Nebraska">Nebraska</option>
-                <option value="Nevada">Nevada</option>
-                <option value="New Hampshire">New Hampshire</option>
-                <option value="New Jersey">New Jersey</option>
-                <option value="New Mexico">New Mexico</option>
-                <option value="New York">New York</option>
-                <option value="North Carolina">North Carolina</option>
-                <option value="North Dakota">North Dakota</option>
-                <option value="Northern Marianas Islands">Northern Marianas Islands</option>
-                <option value="Ohio">Ohio</option>
-                <option value="Oklahoma">Oklahoma</option>
-                <option value="Oregon">Oregon</option>
-                <option value="Pennsylvania">Pennsylvania</option>
-                <option value="Puerto Rico">Puerto Rico</option>
-                <option value="Rhode Island">Rhode Island</option>
-                <option value="South Carolina">South Carolina</option>
-                <option value="South Dakota">South Dakota</option>
-                <option value="Tennessee">Tennessee</option>
-                <option value="Texas">Texas</option>
-                <option value="Utah">Utah</option>
-                <option value="Vermont">Vermont</option>
-                <option value="Virginia">Virginia</option>
-                <option value="Virgin Islands">Virgin Islands</option>
-                <option value="Washington">Washington</option>
-                <option value="West Virginia">West Virginia</option>
-                <option value="Wisconsin">Wisconsin</option>
-                <option value="Wyoming">Wyoming</option>
-              </select>
-            </div>
-            <div class="select" (change)="onChange($event.target.value, 'to')">
-                <select>
-                  <option>Order by Destination</option>
-                  <option value="Alabama">Alabama</option>
-                  <option value="Alaska">Alaska</option>
-                  <option value="Arizona">Arizona</option>
-                  <option value="Arkansas">Arkansas</option>
-                  <option value="California">California</option>
-                  <option value="Colorado">Colorado</option>
-                  <option value="Connecticut">Connecticut</option>
-                  <option value="Delaware">Delaware</option>
-                  <option value="District of Columbia">District of Columbia</option>
-                  <option value="Florida">Florida</option>
-                  <option value="Georgia">Georgia</option>
-                  <option value="Guam">Guam</option>
-                  <option value="Hawaii">Hawaii</option>
-                  <option value="Idaho">Idaho</option>
-                  <option value="Illinois">Illinois</option>
-                  <option value="Indiana">Indiana</option>
-                  <option value="Iowa">Iowa</option>
-                  <option value="Kansas">Kansas</option>
-                  <option value="Kentucky">Kentucky</option>
-                  <option value="Louisiana">Louisiana</option>
-                  <option value="Maine">Maine</option>
-                  <option value="Maryland">Maryland</option>
-                  <option value="Massachusetts">Massachusetts</option>
-                  <option value="Michigan">Michigan</option>
-                  <option value="Minnesota">Minnesota</option>
-                  <option value="Mississippi">Mississippi</option>
-                  <option value="Missouri">Missouri</option>
-                  <option value="Montana">Montana</option>
-                  <option value="Nebraska">Nebraska</option>
-                  <option value="Nevada">Nevada</option>
-                  <option value="New Hampshire">New Hampshire</option>
-                  <option value="New Jersey">New Jersey</option>
-                  <option value="New Mexico">New Mexico</option>
-                  <option value="New York">New York</option>
-                  <option value="North Carolina">North Carolina</option>
-                  <option value="North Dakota">North Dakota</option>
-                  <option value="Northern Marianas Islands">Northern Marianas Islands</option>
-                  <option value="Ohio">Ohio</option>
-                  <option value="Oklahoma">Oklahoma</option>
-                  <option value="Oregon">Oregon</option>
-                  <option value="Pennsylvania">Pennsylvania</option>
-                  <option value="Puerto Rico">Puerto Rico</option>
-                  <option value="Rhode Island">Rhode Island</option>
-                  <option value="South Carolina">South Carolina</option>
-                  <option value="South Dakota">South Dakota</option>
-                  <option value="Tennessee">Tennessee</option>
-                  <option value="Texas">Texas</option>
-                  <option value="Utah">Utah</option>
-                  <option value="Vermont">Vermont</option>
-                  <option value="Virginia">Virginia</option>
-                  <option value="Virgin Islands">Virgin Islands</option>
-                  <option value="Washington">Washington</option>
-                  <option value="West Virginia">West Virginia</option>
-                  <option value="Wisconsin">Wisconsin</option>
-                  <option value="Wyoming">Wyoming</option>
-                </select>
-              </div>
-            <div class="select" (change)="onChange($event.target.value, 'tier')">
-                <select>
-                  <option>Order by Tier</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </select>
-              </div>
-
-            </div>
-        <div class="tile is-ancestor">
-          <div class="tile is-12 is-vertical">
-            <div class="tile"> 
-
-                <!--Results Tile-->
+      <section class="section ">
+        <div class="columns is-centered searchbar">
+          <div class="has-text-centered is-two-fifths">
+            <form #trackForm="ngForm" (ngSubmit)="trackOrder(trackForm)">
+                <label for="orderNumber">Order Number:</label>
+               
+                <input type="text" placeholder="Enter Order #" class=" input is-centered " name="orderNumberInput" ngModel required>
+               <div id="error"></div>
+                 
+                <button class="button  is-danger is-rounded" type="submit" [disabled]="trackForm.invalid">Submit</button>
+    
               
-                <div class="tile is-vertical is-parent results">
-   
-                    <div class="tile is-child box">
-                      <p class="title has-text-dark">
-                        Results:
-                      </p>
-                      <div class="content">
-                        <table onload="ini()" class="table  is-narrow is-hoverable is-three-fifths">
-                            <tr >
-                                <th>Name</th>
-                                <th>Shipping From</th>
-                                <th>Shipping To</th>
-                                <th>Tier</th>
-                            </tr>
-                            <tr *ngFor="let x of orderDetails">
-                                <td>{{x.name}}
-                                  </td>
-                                  <td>{{x.from}}</td>
-                                  <td>{{x.to}}</td>
-                                  <td>{{x.tierOption}}</td>
-                            </tr>       
-                        </table>
-                      </div>
+              </form>
+              
+            </div>
+        </div>
+          <div class="container">
+            <div class="selectContainer">
+              <div class="select" (change)="onChange($event.target.value, 'from')">
+                  <select>
+                    <option value="">Order by Origin </option>
+                    <option value="Alabama">Alabama</option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Arizona">Arizona</option>
+                    <option value="Arkansas">Arkansas</option>
+                    <option value="California">California</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Connecticut">Connecticut</option>
+                    <option value="Delaware">Delaware</option>
+                    <option value="District of Columbia">District of Columbia</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Guam">Guam</option>
+                    <option value="Hawaii">Hawaii</option>
+                    <option value="Idaho">Idaho</option>
+                    <option value="Illinois">Illinois</option>
+                    <option value="Indiana">Indiana</option>
+                    <option value="Iowa">Iowa</option>
+                    <option value="Kansas">Kansas</option>
+                    <option value="Kentucky">Kentucky</option>
+                    <option value="Louisiana">Louisiana</option>
+                    <option value="Maine">Maine</option>
+                    <option value="Maryland">Maryland</option>
+                    <option value="Massachusetts">Massachusetts</option>
+                    <option value="Michigan">Michigan</option>
+                    <option value="Minnesota">Minnesota</option>
+                    <option value="Mississippi">Mississippi</option>
+                    <option value="Missouri">Missouri</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Nebraska">Nebraska</option>
+                    <option value="Nevada">Nevada</option>
+                    <option value="New Hampshire">New Hampshire</option>
+                    <option value="New Jersey">New Jersey</option>
+                    <option value="New Mexico">New Mexico</option>
+                    <option value="New York">New York</option>
+                    <option value="North Carolina">North Carolina</option>
+                    <option value="North Dakota">North Dakota</option>
+                    <option value="Northern Marianas Islands">Northern Marianas Islands</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Oklahoma">Oklahoma</option>
+                    <option value="Oregon">Oregon</option>
+                    <option value="Pennsylvania">Pennsylvania</option>
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="Rhode Island">Rhode Island</option>
+                    <option value="South Carolina">South Carolina</option>
+                    <option value="South Dakota">South Dakota</option>
+                    <option value="Tennessee">Tennessee</option>
+                    <option value="Texas">Texas</option>
+                    <option value="Utah">Utah</option>
+                    <option value="Vermont">Vermont</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="Virgin Islands">Virgin Islands</option>
+                    <option value="Washington">Washington</option>
+                    <option value="West Virginia">West Virginia</option>
+                    <option value="Wisconsin">Wisconsin</option>
+                    <option value="Wyoming">Wyoming</option>
+                  </select>
+                </div>
+                <div class="select" (change)="onChange($event.target.value, 'to')">
+                    <select>
+                      <option value="">Order by Destination</option>
+                      <option value="Alabama">Alabama</option>
+                      <option value="Alaska">Alaska</option>
+                      <option value="Arizona">Arizona</option>
+                      <option value="Arkansas">Arkansas</option>
+                      <option value="California">California</option>
+                      <option value="Colorado">Colorado</option>
+                      <option value="Connecticut">Connecticut</option>
+                      <option value="Delaware">Delaware</option>
+                      <option value="District of Columbia">District of Columbia</option>
+                      <option value="Florida">Florida</option>
+                      <option value="Georgia">Georgia</option>
+                      <option value="Guam">Guam</option>
+                      <option value="Hawaii">Hawaii</option>
+                      <option value="Idaho">Idaho</option>
+                      <option value="Illinois">Illinois</option>
+                      <option value="Indiana">Indiana</option>
+                      <option value="Iowa">Iowa</option>
+                      <option value="Kansas">Kansas</option>
+                      <option value="Kentucky">Kentucky</option>
+                      <option value="Louisiana">Louisiana</option>
+                      <option value="Maine">Maine</option>
+                      <option value="Maryland">Maryland</option>
+                      <option value="Massachusetts">Massachusetts</option>
+                      <option value="Michigan">Michigan</option>
+                      <option value="Minnesota">Minnesota</option>
+                      <option value="Mississippi">Mississippi</option>
+                      <option value="Missouri">Missouri</option>
+                      <option value="Montana">Montana</option>
+                      <option value="Nebraska">Nebraska</option>
+                      <option value="Nevada">Nevada</option>
+                      <option value="New Hampshire">New Hampshire</option>
+                      <option value="New Jersey">New Jersey</option>
+                      <option value="New Mexico">New Mexico</option>
+                      <option value="New York">New York</option>
+                      <option value="North Carolina">North Carolina</option>
+                      <option value="North Dakota">North Dakota</option>
+                      <option value="Northern Marianas Islands">Northern Marianas Islands</option>
+                      <option value="Ohio">Ohio</option>
+                      <option value="Oklahoma">Oklahoma</option>
+                      <option value="Oregon">Oregon</option>
+                      <option value="Pennsylvania">Pennsylvania</option>
+                      <option value="Puerto Rico">Puerto Rico</option>
+                      <option value="Rhode Island">Rhode Island</option>
+                      <option value="South Carolina">South Carolina</option>
+                      <option value="South Dakota">South Dakota</option>
+                      <option value="Tennessee">Tennessee</option>
+                      <option value="Texas">Texas</option>
+                      <option value="Utah">Utah</option>
+                      <option value="Vermont">Vermont</option>
+                      <option value="Virginia">Virginia</option>
+                      <option value="Virgin Islands">Virgin Islands</option>
+                      <option value="Washington">Washington</option>
+                      <option value="West Virginia">West Virginia</option>
+                      <option value="Wisconsin">Wisconsin</option>
+                      <option value="Wyoming">Wyoming</option>
+                    </select>
+                  </div>
+                <div class="select" (change)="onChange($event.target.value, 'tier')">
+                    <select>
+                      <option value="">Order by Tier</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+                  
+    
+                </div>
+            <div class="tile is-ancestor">
+              <div class="tile is-12 is-vertical">
+                <div class="tile"> 
+    
+                    <!--Results Tile-->
+                  
+                    <div class="tile is-vertical is-parent results">
+       
+                        <div class="tile is-child box" id="message">
+                          <p class="title has-text-dark">
+                            Results:
+                          </p>
+                          <!-- <span id="message"></span> -->
+                          <div class="content">
+                            <table onload="ini()" class="table  is-narrow is-hoverable is-three-fifths">
+                                <tr >
+                                    <th>Name</th>
+                                    <th>Shipping From</th>
+                                    <th>Shipping To</th>
+                                    <th>Tier</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr *ngFor="let x of orderDetails">
+                                    <td>{{x.name}}
+                                      </td>
+                                      <td>{{x.from}}</td>
+                                      <td>{{x.to}}</td>
+                                      <td>{{x.tierOption}}</td>
+                                      <td >
+                                        <form (ngSubmit)="updateStatus(statusForm)" #statusForm="ngForm" >
+                                           <input type="text" hidden name="orderNumber" [ngModel]="x.orderNumber">
+                                           
+                                                <span class="select  is-small">
+                                           <select class="" ngModel name="status" required>
+                                              <option value="" disabled>Status</option>
+                                            <option value="Processing">Processing</option>
+                                            <option value="Shipped">Shipped</option>
+                                            <option value="Delivered">Delivered</option>
+                                            </select>
+                                          </span>
+                                          <span class="control">
+                                          <button class="button is-small is-info"type="submit" [disabled]="statusForm.invalid" >Update</button>
+                                        </span>
+                                        </form>
+                                      </td>
+                                </tr>       
+                            </table>
+                          </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-          </div>
-        </div> 
-
-        <section class="section">
+              </div>
+            </div> 
+    
+            <section class="section">
+            </section>
+            
+         </div>
         </section>
-        
-     </div>
-    </section>
+    
+    
+    </div>
 
-
+    
 </section>

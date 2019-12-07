@@ -14,30 +14,37 @@ var app = express();
  
 exports.email = functions.https.onRequest((req, res)=>{
        cors(req, res, () => {
-         res.status(200).json({
+        //  res.status(200).json({
            
-                message: "your email was sent"
+        //         message: "inside funtion"
+        //     })
+      var obj = JSON.parse(req.body);
+      sgMail.setApiKey('');
+      
+      const msg = {
+                    to: 'contact.swoladm@gmail.com',
+                    from: obj.email,
+                    subject: 'SWOL Contact',
+                    text: obj.message,
+                  //   html: '<strong></strong>',
+        };
+
+
+        sgMail.send(msg).then(()=>{
+            console.log("sent");
+             res.status(200).json({
+           
+                message: "Senttttt"
             })
-       });
-           var obj = JSON.parse(req.body);
-           console.log(obj.message);
+            // res.send("Email sent");
+          }).catch((error)=>{
+              console.log('error', error);
+          });
+      });
+            
+          //  console.log(obj.message);
          
 
-
-// sgMail.setApiKey("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");
-// const msg = {
-//   to: 'contact.swoladm@gmail.com',
-//   from: obj.email,
-//   subject: 'SWOL Contact',
-//   text: obj.message,
-// //   html: '<strong></strong>',
-// };
-// sgMail.send(msg).then(()=>{
-//     console.log("sent");
-//     res.send("Your email was sent");
-// }).catch((error)=>{
-//     console.log('error', error);
-// });
 
 })
 

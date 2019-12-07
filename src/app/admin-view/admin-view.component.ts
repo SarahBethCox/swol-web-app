@@ -5,6 +5,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
 import { triggerAsyncId } from 'async_hooks';
 import { BindingFlags } from '@angular/compiler/src/core';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthService } from '../shared/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-view',
@@ -24,18 +27,33 @@ export class AdminViewComponent implements OnInit {
     tiervalue:""
   };
   
-  constructor(private firestore:AngularFirestore, private service:OrderService) { }
+  constructor(private firestore:AngularFirestore, private service:OrderService,public authService: AuthService,private route:ActivatedRoute,
+    private router:Router) { }
 
   ngOnInit() {
-
-  }
-  trackOrder(formData:NgForm){
     
+    document.getElementById("logoutBtn").style.display = "inline-block";
+   this.authService.isSignIn();  //used to redirect if user types url to admin view
   
-  }
 
+var vm = this;
+  this.firestore.collection("orders").get().toPromise().then(function(querySnapshot) {
+querySnapshot.forEach(function(doc) {
+
+vm.orderDetails.push(doc.data() );
+
+});
+});
+
+
+  }
+  ngOnDestroy() {
+    document.getElementById("logoutBtn").style.display = "none";
+  }
+  
 
   onChange(selection, searchtype){
+   
     let results = document.getElementsByClassName('results') as HTMLCollectionOf<HTMLElement>;
     results[0].style.visibility = "visible";
     var vm = this;
@@ -45,28 +63,32 @@ export class AdminViewComponent implements OnInit {
    
 
     if(searchtype=='from' ){
+      if(selection ==""){
+        vm.flag.from=false;
+      }
+      else{
        vm.flag.from =true;
        vm.flag.fromvalue = selection;
-      //  if(doc.data().from == selection){
-      //   vm.orderDetails.push(doc.data());
-       
-      //  }
+      }
       }
       if(searchtype=='to'  ){
+        if(selection ==""){
+          vm.flag.to=false;
+        }
+        else{
         vm.flag.to =true;
         vm.flag.tovalue = selection;
-        // if(doc.data().to == selection){
-         
-        //  vm.orderDetails.push(doc.data());
-        // }
+      }
        }
     if(searchtype=='tier'){
+      if(selection ==""){
+        vm.flag.tier=false;
+       
+      }
+      else{
       vm.flag.tier =true;
       vm.flag.tiervalue = selection;
-      //  if(doc.data().tierOption == selection){
-        
-      //   vm.orderDetails.push(doc.data());
-      //  }
+      }
       }
 
 
@@ -75,9 +97,9 @@ export class AdminViewComponent implements OnInit {
         if(doc.data().from == vm.flag.fromvalue&& doc.data().to == vm.flag.tovalue &&doc.data().tierOption == vm.flag.tiervalue) 
         {
           vm.orderDetails.push(doc.data() );
-
         }  
       }
+      
       if(vm.flag.from ==true && vm.flag.to ==true && vm.flag.tier == false){
         if(doc.data().from == vm.flag.fromvalue&& doc.data().to == vm.flag.tovalue) 
         {
@@ -118,6 +140,10 @@ export class AdminViewComponent implements OnInit {
           vm.orderDetails.push(doc.data());
         }  
       }
+      if(vm.flag.from ==false && vm.flag.to ==false && vm.flag.tier == false ){
+        // results[0].style.visibility = "hidden";
+        vm.orderDetails.push(doc.data());
+      }
       
    
     });
@@ -126,5 +152,50 @@ export class AdminViewComponent implements OnInit {
     
 });
 
-  }
+}
+
+updateStatus(data:NgForm){
+  console.log(data.value);
+ this.firestore.collection("orders").doc(data.value.orderNumber).update({
+   status: data.value.status
+ })
+ .then(()=>{
+  var statusSectiion =document.getElementById("message");
+  statusSectiion.insertAdjacentHTML("beforebegin", '<span style="margin-bottom:0px;" class="alert alert-success has-text-centered" role="alert">A simple success alert—check it out!</span>');
+ });
+}
+
+trackOrder(formData:NgForm){  
+  let results = document.getElementsByClassName('results') as HTMLCollectionOf<HTMLElement>;
+
+  var docRef = this.firestore.collection('orders').doc(formData.value.orderNumberInput);
+  var vm = this;
+  this.orderDetails =[];
+  docRef.get().toPromise().then((doc)=>{
+    
+    if(doc.exists){
+      results[0].style.visibility = "visible";
+     var node =document.getElementById("error");
+
+     if(node.hasChildNodes())
+      node.firstChild.remove();
+  
+    vm.orderDetails.push(doc.data() );
+    }
+    
+    else{
+      document.getElementById("error").innerHTML = "<div class='alert alert-danger' role='alert'> The order number you provided does not exist!!</div>";
+      results[0].style.visibility = "hidden";
+      console.log("does not exist");
+    }
+  }).catch(function(error){
+    console.log("errrrrr",error);
+  });
+
+
+
+}
+
+
+
 }
