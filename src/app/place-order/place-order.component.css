@@ -9,8 +9,9 @@ label{
     font-size: 11px!important; */
 }
 .hero{
-    /* background-image: url('/assets/img/plane-background.jpg') !important;
+    /* background-image: url('../../assets/img/396.jpg') !important;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat; */
 }   
 .formLogoImg{
@@ -27,8 +28,8 @@ label{
   cursor: pointer;
   
 }
-.orderFormContainer{
-
+.notification{
+box-shadow: 2px 2px #c4c4c4;
 }
 .control{
     visibility: hidden;
@@ -45,9 +46,14 @@ label{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
-.tier.container.columns{
-   
+
+.tiersbg{
+    background-image: url('../../assets/img/placeOrderbg.svg') !important;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .section{
     padding: 0;
@@ -58,7 +64,7 @@ h3{
 .orderFormContainer{
 height: 100vh;
 display: flex;
-    flex-direction: column;
-    justify-content: center;
+flex-direction: column;
+justify-content: center;
 
 }

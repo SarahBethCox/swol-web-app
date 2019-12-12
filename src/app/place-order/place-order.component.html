@@ -13,7 +13,7 @@
   </div> -->
 
   <!--Description of tiers-->
-  <section class="section ">
+  <section class="section tiersbg">
     <div class="container tiers has-text-centered">
         <h3 class="subtitle">
             <h1 class="title is-1">
@@ -24,7 +24,7 @@
       <div class="columns " >
 
         <div class="column" >  
-          <div id='1' class="  notification has-text-dark" (click)="scrollToElement(toForm, $event)">
+          <div id='1' class="  notification  has-text-dark" (click)="scrollToElement(toForm, $event)">
               <div class="column tierImgs">
               <figure class=" image is-96x96 ">
                  
@@ -44,7 +44,7 @@
 
        
         <div id="2"  class="column " (click)="scrollToElement(toForm, $event)">
-          <div class=" notification has-text-dark">
+          <div class=" notification  has-text-dark">
               <div class="column tierImgs">
                   <figure class=" image is-96x96 ">
                       <img src="../../assets/img/TierTwo.png">
@@ -61,7 +61,7 @@
       
 
         <div id="3"  class="column " (click)="scrollToElement(toForm, $event)">
-          <div class=" notification has-text-dark">
+          <div class=" notification  has-text-dark">
               <div class="column tierThree tierImgs">
                   <figure class=" image is-96x96">
                       <img src="../../assets/img/TierThree.png">
@@ -134,7 +134,7 @@
 
         <!--Name fields-->
         <div class="field">
-          <label class="label has-text-white is-size-5">Name
+          <label class="label has-text-grey is-size-6">Name
             <!--Error if no name is provided--> 
             <div class="help is-error is-danger is-size-6" *ngIf="nameInput.invalid && nameInput.touched">
               *
@@ -143,13 +143,13 @@
           <input type="text" [(ngModel)]="service.formData.firstName" #nameInput="ngModel" name="name" class="input" placeholder="Your Name" 
             required>
           
-        </div>
+        </div><br/>
 
       
 
         <!--Ship From field-->
         <div class="field">
-          <label class="label has-text-white is-size-5">Ship From:
+          <label class="label has-text-grey is-size-6">Ship From:
             <div class="help is-error is-danger is-size-6" *ngIf="fromInput.invalid && fromInput.touched">
             *
             </div>
@@ -217,11 +217,11 @@
             
 
           </div>
-        </div>
+        </div><br/>
 
         <!--Ship To field-->
         <div class="field">
-          <label class="label has-text-white is-size-5">Ship To:
+          <label class="label has-text-grey is-size-6">Ship To:
             <div class="help is-error is-danger is-size-6" *ngIf="toInput.invalid && toInput.touched">
             *
             </div>

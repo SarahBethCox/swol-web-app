@@ -1,7 +1,9 @@
-.hero {
-    background-image: url('/assets/img/plane-background.png') !important;
-    background-size: cover;
-    background-position: center center;
+.imgColumn {
+    background-image: url('../../assets/img/cbg.svg') !important;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+
   }
   button{
 }
@@ -14,10 +16,18 @@
 div.hero-body{
   padding: 0;
 }
-
+.title{
+  margin-bottom: 10px!important;
+}
 img{
   margin: 0 auto;
 }
 button.close{
   margin-left: 0;
+}
+.formColumn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 96vh;
 }

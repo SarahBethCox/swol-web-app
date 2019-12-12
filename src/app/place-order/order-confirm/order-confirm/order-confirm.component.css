@@ -1,8 +1,13 @@
 .hero {
-    /* background-image: url('/assets/img/airplane.png') !important; */
+    background-image: url('../../../../assets/img/placeOrderbg.svg') !important;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    min-height: 100vh;
+    
 }   
+
+
 
 .section.is-medium{
     padding: 0;
@@ -13,8 +18,12 @@
 .modal{
       color: black;
   }
-.mainContainer{
+.hero-body{
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
    
 }
 img{

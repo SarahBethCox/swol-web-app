@@ -1,6 +1,15 @@
-.mainContainer {
-    background: url('/assets/img/plane-background.png');
-    background-size: cover;
+.imgColumn {
+    background: url('/assets/img/blackbox.svg');
+    background-size: 60%;
+    background-position: center ;
+    background-repeat: no-repeat!important;
+    height: 100vh;
+    
+    
+  }
+  .imgColumn2 {
+    background: url('/assets/img/mapTracking.svg');
+    background-size: 60%;
     background-position: center ;
     background-repeat: no-repeat!important;
     height: 100vh;

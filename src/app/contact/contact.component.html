@@ -1,107 +1,103 @@
 <!--This is the contact page component-->
 
 <section class="hero  main">
-    ]
-        <div class="field banner">
-            <h1 class="title has-text-white has-text-centered">
-                Contact Us
-            </h1>
-            <h3 class="subtitle has-text-white has-text-centered">
-                Leave us a message!
-            </h3>
-        </div>
     
-    <div class="columns is-centered">
-    <div class="column is-half ">
-    <section class="section is-medium">
-        <div class="container">
-            <!--Contact Form-->
-          <form (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm" autocomplete="off">
-              <!--Name-->
-              <div class="field">
-                <label class="label has-text-white is-size-5">Name</label>
-                  <input 
-                      type="text" 
-                      name="name" 
-                      class="input" 
-                      placeholder="Your Name"
-                      [(ngModel)]="name"
-                      #nameInput="ngModel"
-                      required>
+  <div class="columns is-desktop">
+  
+    <div class="column imgColumn"></div>
+
+    <div class="column formColumn">
+
+      <div class="field banner">
+        <h1 class="title has-text-black has-text-centered">
+          Contact Us 
+          
+        </h1>
+        <h6 class="has-text-centered">
+            Call us at (479)-355-7728
+        </h6>
+        
+        <h3 class="subtitle has-text-black has-text-centered">
+          Leave us a message!
+        </h3>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-four-fifths ">
+          <section class="section is-medium">
+            <div class="container">
+              <!--Contact Form-->
+              <form (ngSubmit)="sendEmail(contactForm)" #contactForm="ngForm" autocomplete="off">
+                <!--Name-->
+                <div class="field">
+                  <!-- <label class="label has-text-white is-size-5">Name</label> -->
+                  <br />
+                  <input type="text" name="name" class="input" placeholder="Your Name" [(ngModel)]="name"
+                    #nameInput="ngModel" required>
                   <!--Error if no name is provided-->
                   <div class="help is-error is-danger is-size-6" *ngIf="nameInput.invalid && nameInput.touched">
-                      Your name is required.
+                    Your name is required.
                   </div>
-              </div>
-              <!--Email-->
-              <div class="field">
-                <label class="label has-text-white is-size-5">Email</label>
-                  <input 
-                      type="email" 
-                      name="email" 
-                      class="input" 
-                      placeholder="Your Email" 
-                      [(ngModel)]="email"
-                      #emailInput="ngModel"
-                      required
-                      email>
+                </div>
+                <!--Email-->
+                <div class="field">
+                  <!-- <label class="label has-text-white is-size-5">Email</label> -->
+                  <br />
+                  <input type="email" name="email" class="input" placeholder="Your Email" [(ngModel)]="email"
+                    #emailInput="ngModel" required email>
                   <!--Error if no email is provided-->
                   <div class="help is-error is-danger is-size-6" *ngIf="emailInput.invalid && emailInput.touched">
-                      A valid email is required.
+                    A valid email is required.
                   </div>
-              </div>
-              <!--Message-->
-              <div class="field">
-                <label class="label has-text-white is-size-5">Message</label>
-                  <textarea 
-                      class="textarea" 
-                      name="message" 
-                      placeholder="Your Message Here" 
-                      [(ngModel)]="message"
-                      #messageInput="ngModel"
-                      maxlength="150"
-                      required
-                  ></textarea>
+                </div>
+                <!--Message-->
+                <div class="field">
+                  <!-- <label class="label has-text-white is-size-5">Message</label> -->
+                  <br />
+                  <textarea class="textarea" name="message" placeholder="Your Message Here" [(ngModel)]="message"
+                    #messageInput="ngModel" maxlength="150" required></textarea>
                   <!--Error if no name is provided-->
                   <div class="help is-error is-danger is-size-6" *ngIf="messageInput.invalid && messageInput.touched">
-                      A message is required and has a maximum of 150 characters.
+                    A message is required and has a maximum of 150 characters.
                   </div>
-              </div>
-              <!--Submit Button-->
-              <div class="field has-text-centered">
-              <button 
-                  type="submit" 
-                  class="button is-danger  is-large " [disabled]="contactForm.invalid">
-                  Send
-              </button>
+                </div>
+                <!--Submit Button-->
+                <div class="field has-text-centered">
+                  <button type="submit" class="button is-danger  is-large " [disabled]="contactForm.invalid">
+                    Send
+                  </button>
+                </div>
+              </form>
             </div>
-          </form>
+          </section>
         </div>
-      </section>
+      </div>
+
     </div>
-    </div>
-      <section class="section">
-      </section>    
+  </div>
+  
 </section>
 
-<button type="button" id="openModalButton" [hidden]="true" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"></button>
+<button type="button" id="openModalButton" [hidden]="true" class="btn btn-primary" data-toggle="modal"
+  data-target="#exampleModal"></button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content ">
-        <div class="modal-header " >
-          <img src="../../assets/img/swollogo.png" width="90.5" height="30" >
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Your email was sent!</p>
-        </div>
-        <div class="modal-footer d-flex justify-content-center">
-          <button type="button" class="btn btn-secondary " data-dismiss="modal" (click)="toHome()">Close</button>
-        </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content ">
+      <div class="modal-header ">
+        <img src="../../assets/img/swollogo.png" width="90.5" height="30">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Your email was sent!</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-danger " data-dismiss="modal" (click)="toHome()">Close</button>
       </div>
     </div>
   </div>
+</div>

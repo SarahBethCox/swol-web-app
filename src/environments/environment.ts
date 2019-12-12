@@ -6,14 +6,14 @@ export const environment = {
   production: false,
 
   firebaeConfig: {
-    apiKey: "AIzaSyDeyMUj6So8rguTHbhMLZ09ox3ppVG-qZo",
-    authDomain: "swolcrud.firebaseapp.com",
-    databaseURL: "https://swolcrud.firebaseio.com",
-    projectId: "swolcrud",
-    storageBucket: "swolcrud.appspot.com",
-    messagingSenderId: "879359443396",
-    appId: "1:879359443396:web:41766ec353c96972f92491",
-    measurementId: "G-MBVTFBJXGE"
+    apiKey: "AIzaSyAYaX97Tdy7ZxSgSfau4641_9aY8xlNi-8",
+    authDomain: "swol-3ea3a.firebaseapp.com",
+    databaseURL: "https://swol-3ea3a.firebaseio.com",
+    projectId: "swol-3ea3a",
+    storageBucket: "swol-3ea3a.appspot.com",
+    messagingSenderId: "110795033900",
+    appId: "1:110795033900:web:f98f3ee08a069a3bce7089",
+    measurementId: "G-TTLYXKFHXW"
   }
 };
 
