@@ -41,7 +41,7 @@ export class OrderConfirmComponent implements OnInit {
       this.to = this.orderDetails.to;
       this.tier = this.orderDetails.tierOption;
       if(this.name == undefined){
-       this.router.navigate(['/place-order']);
+        this.router.navigate(['/place-order']);
       }
   }
   createOrderNumber(){

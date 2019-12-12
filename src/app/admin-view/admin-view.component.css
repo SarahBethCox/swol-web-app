@@ -1,7 +1,8 @@
 .hero {
-    background-image: url('/assets/img/plane-background.png') !important;
-    background-size: cover;
-    background-position: center center;
+  background: url('/../../assets/img/15409.svg');
+  background-size: cover;
+  background-position: center ;
+  background-repeat: no-repeat;
     min-height: 100vh;
   }
   .selectContainer{

@@ -2,11 +2,24 @@
   background-image: url('/assets/img/plane-background.png') !important;
   background-size: cover;
   background-position: center center;
+  
 }
-
+.bgAppereance{
+  min-height: 100vh;
+  min-width: 100vw;
+  background:#0F1829 ;
+  opacity: 45%;
+  position: absolute;
+  z-index: 0;
+}
+.aboutUs{
+  z-index: 4;
+  margin-top: 10%;
+}
 .container{
   height: 220px;
 }
+
 div.hero-body{
   height: 100vh;
   padding: 0!important;

@@ -20,30 +20,15 @@ export class ContactComponent implements OnInit {
 
   sendEmail(data:NgForm) {
 
-    let url = 'https://us-central1-swolcrud.cloudfunctions.net/email';
-    // let headers = new HttpHeaders(
-    //   {'Content-Type': 'application/json',
-    //    'Access-Control-Allow-Origin': '*' });
     let body = JSON.stringify({
       message: data.value.message,
       email: data.value.email,
       name: data.value.name
   });
-     let params= new HttpParams().set('content', 'user@example.com');
-    // params.set('from', 'you@yoursupercoolapp.cosm');
-    // params.set('subject', 'test-email');
-    // params.set('content', 'Hello World');
 
-    this.http.post('https://us-central1-swolcrud.cloudfunctions.net/email', body
-  //   {headers: new HttpHeaders({
-      
-  //     'Content-Type': 'application/json',
-  //     'Access-Control-Allow-Origin': '*'
-  //   })
-  // }
-  ).subscribe(
+
+    this.http.post('https://us-central1-swol-3ea3a.cloudfunctions.net/email', body).subscribe(
     res => {
-      // alert(res.toLocaleString);
       document.getElementById("openModalButton").click();
       data.reset();
 

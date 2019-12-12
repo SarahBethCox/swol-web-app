@@ -4,6 +4,10 @@
     justify-content: center;
     height: 100vh;
     background: #f7f7f7;
+    background: url('../../../assets/img/15409.svg');
+    background-size: cover;
+    background-position: center ;
+    background-repeat: no-repeat;
   }
   #login .login-card {
     background: #fff;
@@ -112,4 +116,6 @@
   textarea:focus,
   button:focus {
     outline: none;
-  }  
+  } 
+ 
+  

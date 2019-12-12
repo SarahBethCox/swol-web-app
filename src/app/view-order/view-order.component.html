@@ -1,4 +1,9 @@
 <!--view order component-->
+<div class="columns is-desktop">
+  
+    <div class="column imgColumn"></div>
+
+    <div class="column formColumn">
 <div class="mainContainer">
 <section class="hero is-fullheight ">
 
@@ -9,14 +14,14 @@
           <div class="hero-body">
               <div class="container">
                 <h1 class="title has-text-centered">
-                    View Your Order's Status:                
+                    View Your Order's Status                
                   </h1>
                 
               </div>
             </div>
        
         <div class="columns is-centered has-text-centered">
-          <div class="is-two-fifths">
+          <div class="is-four-fifths">
 
              <form #trackForm="ngForm" (ngSubmit)="trackOrder(trackForm)">
             <label for="orderNumber">Order Number:</label>
@@ -41,7 +46,7 @@
 
     
     <div class="columns is-centered">
-      <div class="column is-two-fifths" >
+      <div class="column is-full" >
         <table  class="table results is-narrow is-hoverable ">
             <tr>
               <th>Name</th>
@@ -68,6 +73,10 @@
 
    
   </section>
+</div>
+</div>
+<div class="column imgColumn2"></div>
+
 </div>
 <!-- Button trigger modal -->
 <!-- <button type="button" id="modalButton" [hidden]="true" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
